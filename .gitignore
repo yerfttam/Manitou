@@ -1,0 +1,8 @@
+OLD/
+Website/
+Photos/
+.DS_Store
+*.pyc
+__pycache__/
+.env
+scripts/__pycache__/
