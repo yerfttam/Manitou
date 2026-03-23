@@ -5,6 +5,18 @@
  * sticky category nav, section headers, property cards with photo carousels.
  */
 
+// Extract a unique short description from a listing's description field.
+// Skips the generic campground opener shared by A-Frames and Camping,
+// strips *** markers, and trims to ~200 characters.
+function getListingDesc(listing) {
+  if (!listing.description) return listing.summary || '';
+  const GENERIC = 'The Manitou Campground is located';
+  const paras = listing.description.split('\n\n').map(p => p.trim()).filter(Boolean);
+  const para = paras.find(p => !p.startsWith(GENERIC)) || paras[0] || '';
+  const clean = para.replace(/^\*+\s*/g, '').replace(/\*+\s*/g, '').trim();
+  return clean.length > 220 ? clean.slice(0, 220).replace(/\s+\S*$/, '') + '…' : clean;
+}
+
 // Section descriptions keyed by category slug.
 // These come from the owner, not Guesty — edit here to update copy.
 const SECTION_COPY = {
@@ -78,7 +90,7 @@ function renderCard(listing, slug) {
       <div class="prop-card-body">
         ${photos.length > 1 ? `<div class="prop-card-dots">${dots}</div>` : ''}
         <div class="prop-card-name">${listing.name}</div>
-        ${listing.summary ? `<div class="prop-card-desc">${listing.summary}</div>` : ''}
+        <div class="prop-card-desc">${getListingDesc(listing)}</div>
         ${price ? `<div class="prop-card-price">${price}</div>` : ''}
         ${meta  ? `<div class="prop-card-meta">${meta}</div>`   : ''}
         <a href="${listing.bookingUrl}" target="_blank" rel="noopener" class="prop-card-book">
