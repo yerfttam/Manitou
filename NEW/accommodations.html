@@ -170,8 +170,8 @@
     .modal-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1.5rem; margin-bottom: 0.75rem; }
     .modal-name { font-family: 'NativeRecordSans', sans-serif; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--green-dark); margin-bottom: 0.2rem; }
     .modal-meta { font-size: 0.78rem; color: var(--text-mid); letter-spacing: 0.03em; }
-    .modal-price-wrap { text-align: right; flex-shrink: 0; }
-    .modal-price { font-size: 0.95rem; color: var(--amber); margin-bottom: 0.5rem; white-space: nowrap; }
+    .modal-price-wrap { display: flex; align-items: center; gap: 1rem; flex-shrink: 0; }
+    .modal-price { font-size: 0.95rem; color: var(--amber); margin-bottom: 0; white-space: nowrap; }
     .modal-book { display: inline-block; }
     .modal-desc p { font-size: 0.85rem; line-height: 1.7; color: var(--text-mid); margin-bottom: 0.6rem; }
     .modal-amenities-wrap { margin-top: 1rem; border-top: 1px solid rgba(55,63,46,0.12); padding-top: 1rem; }
@@ -184,7 +184,7 @@
       .modal-img { height: 240px; }
       .modal-body { padding: 1.5rem; }
       .modal-header { flex-direction: column; }
-      .modal-price-wrap { text-align: left; }
+
       .modal-amenities { grid-template-columns: repeat(2, 1fr); }
     }
 

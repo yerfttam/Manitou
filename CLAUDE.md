@@ -69,7 +69,7 @@ Each page must include both:
 
 All pages complete:
 - `index.html` ✅ — Home (all sections built)
-- `accommodations.html` ✅ — WCBNW-style: sticky category nav, per-category sections, photo carousels, Accommodations dropdown in nav, cream card background, 4-line descriptions
+- `accommodations.html` ✅ — WCBNW-style: sticky category nav, per-category sections, photo carousels, detail modal on card click, cream card background, 4-line unique descriptions
 - `about.html` ✅ — Lodge history, property features, distances, beaches, Hoh Rainforest
 - `policies.html` ✅ — Rates, check-in/out, cancellations, pets, children, groups
 - `specials.html` ✅ — Coming soon page (dark green layout, BOOK NOW CTA)
@@ -192,7 +192,7 @@ Every page footer displays a version string via `<span class="site-version">`.
 3. Update `Current version` below to match
 4. Lead the commit message with the version number — this is what shows in the Render deploy dashboard
 
-Current version: **v0.5.2**
+Current version: **v0.5.3**
 
 **The footer is a shared partial.** To update the version, edit ONE file only:
 ```
@@ -202,7 +202,7 @@ Change the `<span class="site-version">vX.X.X</span>` value. Do not edit version
 
 **Commit message format:** Always lead with the version number:
 ```
-v0.4.7 fix: description of what changed
+v0.5.2 fix: description of what changed
 ```
 This version prefix appears in the Render deploy dashboard, making it easy to confirm which version is live.
 
@@ -215,9 +215,33 @@ This version prefix appears in the Render deploy dashboard, making it easy to co
 - **Sync script:** `scripts/sync-guesty.py` — reads `NEW/property-map.txt`, fetches Guesty API, writes `listings.json`
 - **Nightly sync:** GitHub Actions workflow (to be configured — copy from WCBNW)
 
-### Property Card Descriptions
+### Property Cards
 
-Cards use `getListingDesc()` in `listings-loader.js` — extracts the first unique paragraph from Guesty's `description` field, skipping the shared campground opener used by A-Frames and Camping. Strips `***` markers, truncates to ~440 characters (4 lines).
+Cards use cream (`--cream`) background, 4-line clamped descriptions, and open a detail modal on click.
+
+**Card descriptions** — `getListingDesc()` in `listings-loader.js`: extracts the first unique paragraph from Guesty's `description` field, skipping the shared campground opener ("The Manitou Campground is located…") used by A-Frames and Camping. Strips `***` markers, truncates to ~440 characters.
+
+### Property Card Modal
+
+Clicking a card (anywhere except the carousel arrows or Book Now button) opens a full-detail modal:
+- Full photo carousel with keyboard arrow navigation
+- Property name, guest/bed/bath meta, price
+- First 2 unique description paragraphs (`getFullDesc()`)
+- Amenities grid (hidden if none)
+- Book Now button linking to Guesty booking engine
+
+**Implementation:** `js/listings-loader.js` — `buildModal()` creates and appends the modal DOM programmatically (no static HTML in `accommodations.html`). `listingRegistry` Map stores all listings by id for O(1) modal lookup. Event delegation on `#listings-sections` handles card clicks.
+
+### Our Spaces (Home Page) Card Order
+
+Cards render in this order (top-left to bottom-right):
+1. Lodge Rooms (large left, spans 2 rows)
+2. A-Frames (top row right)
+3. Camping & Tent Sites (top row right)
+4. Cottage Rooms (bottom row)
+5. Cabins (bottom row)
+
+A-Frames and Camping are placed prominently because they are the most affordable options.
 
 ### Categories (from listings.json)
 | Category | Count |
