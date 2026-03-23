@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accommodations — Manitou Lodge</title>
+  <style>
+    /* ── Fonts ─────────────────────────────────────────── */
+    @font-face {
+      font-family: 'NativeRecordSerif';
+      src: url('fonts/native_record_serif-webfont.woff2') format('woff2'),
+           url('fonts/native_record_serif-webfont.woff') format('woff');
+      font-weight: normal; font-style: normal;
+    }
+    @font-face {
+      font-family: 'NativeRecordScript';
+      src: url('fonts/native_record_script-webfont.woff2') format('woff2'),
+           url('fonts/native_record_script-webfont.woff') format('woff');
+      font-weight: normal; font-style: normal;
+    }
+    @font-face {
+      font-family: 'NativeRecordSans';
+      src: url('fonts/native_record_sans-webfont.woff2') format('woff2'),
+           url('fonts/native_record_sans-webfont.woff') format('woff');
+      font-weight: normal; font-style: normal;
+    }
+
+    /* ── Tokens ────────────────────────────────────────── */
+    :root {
+      --green:       #3a4a24;
+      --green-dark:  #283318;
+      --amber:       #c8953a;
+      --cream:       #ddd9bc;
+      --cream-light: #e8e4ce;
+      --white:       #ffffff;
+      --text-dark:   #2d2a1e;
+      --text-mid:    #4a4535;
+      --nav-h:       72px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'NativeRecordSans', Georgia, serif; font-size: 16px; color: var(--text-dark); background: var(--cream-light); overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* ── Nav placeholder ───────────────────────────────── */
+    #site-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: var(--green-dark); height: var(--nav-h); }
+    .nav-inner { max-width: 1280px; margin: 0 auto; height: 100%; padding: 0 2rem; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-left { justify-content: flex-start; }
+    .nav-right { justify-content: flex-end; }
+    .nav-links a { font-family: 'NativeRecordSans', sans-serif; font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.75); transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-book-btn { background: var(--amber) !important; color: var(--green-dark) !important; padding: 0.5rem 1.25rem !important; font-size: 0.7rem !important; letter-spacing: 0.15em !important; opacity: 1 !important; border-radius: 4px !important; }
+    .nav-book-btn:hover { background: #b8832e !important; }
+    .nav-logo { display: flex; justify-content: center; }
+    .nav-logo img { height: 64px; width: auto; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); }
+    .mobile-menu { display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; background: var(--green-dark); z-index: 999; padding: 1.5rem 2rem; flex-direction: column; gap: 0.75rem; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: 'NativeRecordSans', sans-serif; font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.8); padding: 0.6rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .mobile-menu .mob-book { margin-top: 0.5rem; text-align: center; background: var(--amber); color: var(--white) !important; padding: 0.75rem !important; border-bottom: none !important; }
+
+    /* ── Page Header ───────────────────────────────────── */
+    .page-header {
+      background: var(--green-dark);
+      padding-top: calc(var(--nav-h) + 4rem);
+      padding-bottom: 4rem;
+      text-align: center;
+    }
+    .page-header-label {
+      font-family: 'NativeRecordScript', cursive;
+      font-size: 1.3rem; color: var(--amber);
+      display: block; margin-bottom: 0.5rem;
+    }
+    .page-header-title {
+      font-family: 'NativeRecordSans', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      text-transform: uppercase; letter-spacing: 0.05em;
+      color: var(--cream);
+    }
+    .page-header-sub {
+      margin-top: 1rem;
+      font-size: 0.9rem; color: rgba(221,217,188,0.7);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── Accommodations Content ────────────────────────── */
+    .accom-section {
+      max-width: 1200px; margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+    .category-block { margin-bottom: 5rem; }
+    .category-heading {
+      font-family: 'NativeRecordSans', sans-serif;
+      font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--amber); margin-bottom: 0.5rem;
+    }
+    .category-title {
+      font-family: 'NativeRecordSans', sans-serif;
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      text-transform: uppercase; letter-spacing: 0.04em;
+      color: var(--text-dark); margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(58,74,36,0.2);
+    }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .property-card {
+      background: var(--white);
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      display: flex; flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .property-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.12); }
+    .card-photo { aspect-ratio: 4/3; overflow: hidden; }
+    .card-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+    .property-card:hover .card-photo img { transform: scale(1.04); }
+    .card-body { padding: 1.25rem 1.5rem 1.5rem; flex: 1; display: flex; flex-direction: column; }
+    .card-name {
+      font-family: 'NativeRecordSans', sans-serif;
+      font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text-dark); margin-bottom: 0.4rem;
+    }
+    .card-summary {
+      font-size: 0.82rem; color: var(--text-mid);
+      line-height: 1.55; margin-bottom: 1rem; flex: 1;
+    }
+    .card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: auto; }
+    .card-price {
+      font-family: 'NativeRecordSans', sans-serif;
+      font-size: 0.75rem; color: var(--text-mid); letter-spacing: 0.05em;
+    }
+    .card-price strong { color: var(--text-dark); font-size: 1rem; }
+    .card-book {
+      display: inline-block;
+      font-family: 'NativeRecordSans', sans-serif;
+      font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+      background: var(--amber); color: var(--white);
+      padding: 0.55rem 1.1rem; border-radius: 4px;
+      transition: background 0.2s;
+    }
+    .card-book:hover { background: #b8832e; }
+
+    /* ── Loading state ─────────────────────────────────── */
+    .loading { text-align: center; padding: 4rem; color: var(--text-mid); font-size: 0.85rem; letter-spacing: 0.1em; }
+
+    /* ── Responsive ────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .nav-left, .nav-right { display: none; }
+      .hamburger { display: flex; }
+      .nav-inner { grid-template-columns: auto 1fr; }
+      .nav-logo { justify-content: flex-end; }
+    }
+    @media (max-width: 600px) {
+      .cards-grid { grid-template-columns: 1fr; }
+      .accom-section { padding: 3rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <div id="site-nav-placeholder"></div>
+  <script src="js/nav-loader.js" defer></script>
+
+  <header class="page-header">
+    <span class="page-header-label">Find Your Stay</span>
+    <h1 class="page-header-title">Accommodations</h1>
+    <p class="page-header-sub">Lodge rooms, cabins, A-frames &amp; camping on 10 acres of coastal rainforest</p>
+  </header>
+
+  <main class="accom-section" id="listings-root">
+    <p class="loading">Loading properties…</p>
+  </main>
+
+  <div id="site-footer-placeholder"></div>
+  <script src="js/footer-loader.js" defer></script>
+
+  <script>
+    fetch('data/listings.json')
+      .then(r => r.json())
+      .then(data => {
+        const root = document.getElementById('listings-root');
+        root.innerHTML = '';
+
+        data.categories.forEach(cat => {
+          if (!cat.listings || cat.listings.length === 0) return;
+
+          const block = document.createElement('div');
+          block.className = 'category-block';
+          block.innerHTML = `
+            <p class="category-heading">Explore</p>
+            <h2 class="category-title">${cat.name}</h2>
+            <div class="cards-grid" id="grid-${cat.slug}"></div>
+          `;
+          root.appendChild(block);
+
+          const grid = block.querySelector('.cards-grid');
+          cat.listings.forEach(listing => {
+            const photo = listing.photos && listing.photos[0] ? listing.photos[0].original : '';
+            const price = listing.price ? listing.price.base : '';
+            const summary = listing.summary || listing.description || '';
+            const shortSummary = summary.length > 100 ? summary.slice(0, 100).replace(/\s\w+$/, '') + '…' : summary;
+
+            const card = document.createElement('div');
+            card.className = 'property-card';
+            card.innerHTML = `
+              <div class="card-photo">
+                <img src="${photo}" alt="${listing.name}" loading="lazy" />
+              </div>
+              <div class="card-body">
+                <p class="card-name">${listing.name}</p>
+                ${shortSummary ? `<p class="card-summary">${shortSummary}</p>` : ''}
+                <div class="card-footer">
+                  <div class="card-price">
+                    ${price ? `from <strong>$${price}</strong>/night` : ''}
+                  </div>
+                  <a href="${listing.bookingUrl}" target="_blank" rel="noopener" class="card-book">Book Now</a>
+                </div>
+              </div>
+            `;
+            grid.appendChild(card);
+          });
+        });
+      })
+      .catch(() => {
+        document.getElementById('listings-root').innerHTML = '<p class="loading">Unable to load properties. Please try again later.</p>';
+      });
+  </script>
+</body>
+</html>

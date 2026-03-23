@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Policies — Manitou Lodge</title>
+  <style>
+    @font-face {
+      font-family: 'NativeRecordSerif';
+      src: url('fonts/native_record_serif-webfont.woff2') format('woff2'),
+           url('fonts/native_record_serif-webfont.woff') format('woff');
+      font-weight: normal; font-style: normal;
+    }
+    @font-face {
+      font-family: 'NativeRecordScript';
+      src: url('fonts/native_record_script-webfont.woff2') format('woff2'),
+           url('fonts/native_record_script-webfont.woff') format('woff');
+      font-weight: normal; font-style: normal;
+    }
+    @font-face {
+      font-family: 'NativeRecordSans';
+      src: url('fonts/native_record_sans-webfont.woff2') format('woff2'),
+           url('fonts/native_record_sans-webfont.woff') format('woff');
+      font-weight: normal; font-style: normal;
+    }
+
+    :root {
+      --green:       #3a4a24;
+      --green-dark:  #283318;
+      --amber:       #c8953a;
+      --cream:       #ddd9bc;
+      --cream-light: #e8e4ce;
+      --white:       #ffffff;
+      --text-dark:   #2d2a1e;
+      --text-mid:    #4a4535;
+      --nav-h:       72px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'NativeRecordSans', Georgia, serif; font-size: 16px; color: var(--text-dark); background: var(--cream-light); overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+
+    /* Nav */
+    #site-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: var(--green-dark); height: var(--nav-h); }
+    .nav-inner { max-width: 1280px; margin: 0 auto; height: 100%; padding: 0 2rem; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-left { justify-content: flex-start; }
+    .nav-right { justify-content: flex-end; }
+    .nav-links a { font-family: 'NativeRecordSans', sans-serif; font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.75); transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-book-btn { background: var(--amber) !important; color: var(--green-dark) !important; padding: 0.5rem 1.25rem !important; font-size: 0.7rem !important; letter-spacing: 0.15em !important; opacity: 1 !important; border-radius: 4px !important; }
+    .nav-book-btn:hover { background: #b8832e !important; }
+    .nav-logo { display: flex; justify-content: center; }
+    .nav-logo img { height: 64px; width: auto; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); }
+    .mobile-menu { display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; background: var(--green-dark); z-index: 999; padding: 1.5rem 2rem; flex-direction: column; gap: 0.75rem; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: 'NativeRecordSans', sans-serif; font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.8); padding: 0.6rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .mobile-menu .mob-book { margin-top: 0.5rem; text-align: center; background: var(--amber); color: var(--white) !important; padding: 0.75rem !important; border-bottom: none !important; }
+
+    /* Page Header */
+    .page-header {
+      background: var(--green-dark);
+      padding-top: calc(var(--nav-h) + 4rem);
+      padding-bottom: 4rem;
+      text-align: center;
+    }
+    .page-header-label { font-family: 'NativeRecordScript', cursive; font-size: 1.3rem; color: var(--amber); display: block; margin-bottom: 0.5rem; }
+    .page-header-title { font-family: 'NativeRecordSans', sans-serif; font-size: clamp(2rem, 4vw, 3rem); text-transform: uppercase; letter-spacing: 0.05em; color: var(--cream); }
+    .page-header-sub { margin-top: 1rem; font-size: 0.9rem; color: rgba(221,217,188,0.7); letter-spacing: 0.05em; }
+
+    /* Content */
+    .content-wrap { max-width: 860px; margin: 0 auto; padding: 5rem 2rem; }
+
+    .policy-section { margin-bottom: 4rem; }
+    .policy-section:last-child { margin-bottom: 0; }
+
+    .section-label { font-family: 'NativeRecordScript', cursive; font-size: 1.2rem; color: var(--amber); display: block; margin-bottom: 0.4rem; }
+    .section-heading { font-family: 'NativeRecordSans', sans-serif; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-dark); margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(58,74,36,0.2); }
+
+    .body-text { font-size: 0.92rem; line-height: 1.8; color: var(--text-mid); margin-bottom: 0.9rem; }
+    .body-text:last-child { margin-bottom: 0; }
+
+    .policy-list { list-style: none; margin: 0.75rem 0; }
+    .policy-list li { font-size: 0.92rem; line-height: 1.75; color: var(--text-mid); padding: 0.4rem 0 0.4rem 1.5rem; position: relative; border-bottom: 1px solid rgba(58,74,36,0.08); }
+    .policy-list li:last-child { border-bottom: none; }
+    .policy-list li::before { content: '—'; position: absolute; left: 0; color: var(--amber); }
+
+    .highlight-box {
+      background: var(--cream);
+      border-left: 3px solid var(--amber);
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 0 4px 4px 0;
+    }
+    .highlight-box p { font-size: 0.9rem; line-height: 1.7; color: var(--text-mid); }
+    .highlight-box p + p { margin-top: 0.5rem; }
+
+    .rate-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; }
+    .rate-item { background: var(--cream); padding: 1.25rem 1.5rem; border-radius: 4px; }
+    .rate-label { font-family: 'NativeRecordSans', sans-serif; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-mid); margin-bottom: 0.3rem; }
+    .rate-value { font-size: 1rem; color: var(--text-dark); }
+
+    .divider { border: none; border-top: 1px solid rgba(58,74,36,0.15); margin: 3.5rem 0; }
+
+    .contact-cta { background: var(--green-dark); border-radius: 4px; padding: 2.5rem 2rem; text-align: center; margin-top: 4rem; }
+    .contact-cta p { color: rgba(221,217,188,0.8); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.25rem; }
+    .contact-cta a.phone { font-family: 'NativeRecordSans', sans-serif; font-size: 1.1rem; letter-spacing: 0.05em; color: var(--amber); }
+
+    @media (max-width: 900px) {
+      .nav-left, .nav-right { display: none; }
+      .hamburger { display: flex; }
+      .nav-inner { grid-template-columns: auto 1fr; }
+      .nav-logo { justify-content: flex-end; }
+    }
+    @media (max-width: 600px) {
+      .content-wrap { padding: 3rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <div id="site-nav-placeholder"></div>
+  <script src="js/nav-loader.js" defer></script>
+
+  <header class="page-header">
+    <span class="page-header-label">Good to Know</span>
+    <h1 class="page-header-title">Policies</h1>
+    <p class="page-header-sub">Please review before booking — questions welcome at (360) 374-6295</p>
+  </header>
+
+  <main class="content-wrap">
+
+    <section class="policy-section">
+      <span class="section-label">Rates</span>
+      <h2 class="section-heading">Pricing</h2>
+      <div class="rate-grid">
+        <div class="rate-item">
+          <p class="rate-label">Base Rate</p>
+          <p class="rate-value">Double occupancy</p>
+        </div>
+        <div class="rate-item">
+          <p class="rate-label">Extra Person</p>
+          <p class="rate-value">$30 / night each</p>
+        </div>
+        <div class="rate-item">
+          <p class="rate-label">Unannounced Guest</p>
+          <p class="rate-value">$50 charge</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <section class="policy-section">
+      <span class="section-label">Your Stay</span>
+      <h2 class="section-heading">Check-In &amp; Check-Out</h2>
+      <ul class="policy-list">
+        <li><strong>Check-in:</strong> After 4:00 PM</li>
+        <li><strong>Check-out:</strong> By 11:00 AM</li>
+        <li><strong>Minimum Stay:</strong> Two-night minimum required during summer season</li>
+      </ul>
+    </section>
+
+    <hr class="divider" />
+
+    <section class="policy-section">
+      <span class="section-label">Cancellations</span>
+      <h2 class="section-heading">Cancellation Policy</h2>
+      <p class="body-text"><strong>Cabins &amp; Lodge Rooms:</strong></p>
+      <ul class="policy-list">
+        <li>Full refund if cancelled 60+ days before check-in</li>
+        <li>50% refund if cancelled up to 30 days before check-in</li>
+        <li>Same policy applies to rescheduling</li>
+      </ul>
+      <p class="body-text" style="margin-top:1rem;"><strong>Tent Sites &amp; A-Frames:</strong></p>
+      <ul class="policy-list">
+        <li>Full refund if cancelled 14+ days before check-in</li>
+        <li>50% refund if cancelled 7+ days before check-in</li>
+      </ul>
+      <div class="highlight-box">
+        <p>Cancellations cannot be accepted by email or phone message. You must call <strong>(360) 374-6295</strong> and receive a cancellation confirmation email.</p>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <section class="policy-section">
+      <span class="section-label">Pets</span>
+      <h2 class="section-heading">Pet Policy</h2>
+      <ul class="policy-list">
+        <li>$35 per stay, per pet — advance notice required</li>
+        <li>Welcome in Lodge Rooms (excluding Sacagawea), Cottage Rooms, Rustic Cabins, and Tent Sites</li>
+        <li>$50 charge for unannounced pets</li>
+        <li>Not permitted in the Main Lodge Great Room</li>
+        <li>May not be left unattended in room (even if crated) or on property while guests are away</li>
+      </ul>
+    </section>
+
+    <hr class="divider" />
+
+    <section class="policy-section">
+      <span class="section-label">Children</span>
+      <h2 class="section-heading">Children &amp; Families</h2>
+      <ul class="policy-list">
+        <li>Generally unable to accommodate children under 10 (some exceptions in Winter — call for details)</li>
+        <li>No age restriction in the Eagle/Owl Cottage if both units are booked by the same family or group</li>
+        <li>No age restriction in Outback Cabins or Tent Sites</li>
+      </ul>
+    </section>
+
+    <hr class="divider" />
+
+    <section class="policy-section">
+      <span class="section-label">Groups</span>
+      <h2 class="section-heading">Group Bookings &amp; Larger Stays</h2>
+      <p class="body-text">Group bookings are defined as 4 or more rooms on a single night or in sequence. A 50% deposit is required at time of booking, and special cancellation policies apply — call or email for specifics.</p>
+      <ul class="policy-list">
+        <li>Cottage Rooms together accommodate up to 6 persons</li>
+        <li>2-room Cedar Suite in the Main Lodge sleeps up to 5 guests</li>
+        <li>Lily and Lady units (entire upper floor with mezzanine and exterior deck) accommodate up to 5 guests together</li>
+        <li>Seasonally adjusted rates for booking the entire lodge are available</li>
+      </ul>
+    </section>
+
+    <div class="contact-cta">
+      <p>Questions about our policies or special arrangements? We're happy to help.</p>
+      <a href="tel:+13603746295" class="phone">(360) 374-6295</a>
+    </div>
+
+  </main>
+
+  <div id="site-footer-placeholder"></div>
+  <script src="js/footer-loader.js" defer></script>
+</body>
+</html>

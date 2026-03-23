@@ -14,9 +14,9 @@ Content saved to `scraped-site/CONTENT-REFERENCE.md`. Old site has 4 real pages:
 ## 2. Build Home Page ← IN PROGRESS
 Establishes the design system — colors, fonts, nav/footer partials — that all other pages inherit.
 
-- [ ] Implement nav partial (`partials/nav.html`) with desktop + hamburger mobile
-- [ ] Implement footer partial (`partials/footer.html`) with contact info and nav links
-- [ ] Hero section — "Escape to the Forest" headline, BOOK NOW button, cabin photo
+- [x] Implement nav partial (`partials/nav.tpl`) with desktop + hamburger mobile
+- [x] Implement footer partial (`partials/footer.tpl`) with contact info and nav links
+- [x] Hero section — "Escape to the Forest" headline, BOOK NOW button, lodge photo
 - [ ] Welcome / About section — two photos, body copy, BOOK NOW
 - [ ] Our Spaces section — photo grid with room names and pricing
 - [ ] Rainforest & Coast section — full-bleed photo, dark overlay text box
@@ -25,13 +25,12 @@ Establishes the design system — colors, fonts, nav/footer partials — that al
 - [ ] Mobile QA at 375px width
 - [ ] Deploy and verify on Render
 
-## 3. Build Static Pages
-Nav/footer partials from step 2 make these straightforward.
-
-- [ ] `about.html`
+## 3. Build Static Pages ← IN PROGRESS
+- [x] `accommodations.html` — property cards from listings.json, by category, Guesty booking links
+- [x] `about.html` — history, property features, regional activities
+- [x] `policies.html` — rates, check-in/out, cancellations, pets
 - [ ] `specials.html`
 - [ ] `resources.html`
-- [ ] `policies.html`
 - [ ] Mobile QA all pages
 
 ## 4. Guesty Setup ✓
@@ -46,7 +45,7 @@ Nav/footer partials from step 2 make these straightforward.
 **Note:** Category names must avoid `/` — breaks the parser regex. Use "AND" instead.
 
 ## 5. Build Accommodations + Reservations Pages
-- [ ] `accommodations.html` — property cards rendered from `listings.json`, organized by category, each linking to its Guesty booking URL
+- [x] `accommodations.html` — property cards rendered from `listings.json`, organized by category
 - [ ] `reservations.html`
 - [ ] Mobile QA both pages
 

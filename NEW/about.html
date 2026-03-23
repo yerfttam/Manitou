@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Manitou Lodge</title>
+  <style>
+    @font-face {
+      font-family: 'NativeRecordSerif';
+      src: url('fonts/native_record_serif-webfont.woff2') format('woff2'),
+           url('fonts/native_record_serif-webfont.woff') format('woff');
+      font-weight: normal; font-style: normal;
+    }
+    @font-face {
+      font-family: 'NativeRecordScript';
+      src: url('fonts/native_record_script-webfont.woff2') format('woff2'),
+           url('fonts/native_record_script-webfont.woff') format('woff');
+      font-weight: normal; font-style: normal;
+    }
+    @font-face {
+      font-family: 'NativeRecordSans';
+      src: url('fonts/native_record_sans-webfont.woff2') format('woff2'),
+           url('fonts/native_record_sans-webfont.woff') format('woff');
+      font-weight: normal; font-style: normal;
+    }
+
+    :root {
+      --green:       #3a4a24;
+      --green-dark:  #283318;
+      --amber:       #c8953a;
+      --cream:       #ddd9bc;
+      --cream-light: #e8e4ce;
+      --white:       #ffffff;
+      --text-dark:   #2d2a1e;
+      --text-mid:    #4a4535;
+      --nav-h:       72px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'NativeRecordSans', Georgia, serif; font-size: 16px; color: var(--text-dark); background: var(--cream-light); overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* Nav */
+    #site-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: var(--green-dark); height: var(--nav-h); }
+    .nav-inner { max-width: 1280px; margin: 0 auto; height: 100%; padding: 0 2rem; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-left { justify-content: flex-start; }
+    .nav-right { justify-content: flex-end; }
+    .nav-links a { font-family: 'NativeRecordSans', sans-serif; font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.75); transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-book-btn { background: var(--amber) !important; color: var(--green-dark) !important; padding: 0.5rem 1.25rem !important; font-size: 0.7rem !important; letter-spacing: 0.15em !important; opacity: 1 !important; border-radius: 4px !important; }
+    .nav-book-btn:hover { background: #b8832e !important; }
+    .nav-logo { display: flex; justify-content: center; }
+    .nav-logo img { height: 64px; width: auto; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); }
+    .mobile-menu { display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; background: var(--green-dark); z-index: 999; padding: 1.5rem 2rem; flex-direction: column; gap: 0.75rem; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: 'NativeRecordSans', sans-serif; font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.8); padding: 0.6rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .mobile-menu .mob-book { margin-top: 0.5rem; text-align: center; background: var(--amber); color: var(--white) !important; padding: 0.75rem !important; border-bottom: none !important; }
+
+    /* Page Header */
+    .page-header {
+      background: var(--green-dark);
+      padding-top: calc(var(--nav-h) + 4rem);
+      padding-bottom: 4rem;
+      text-align: center;
+    }
+    .page-header-label { font-family: 'NativeRecordScript', cursive; font-size: 1.3rem; color: var(--amber); display: block; margin-bottom: 0.5rem; }
+    .page-header-title { font-family: 'NativeRecordSans', sans-serif; font-size: clamp(2rem, 4vw, 3rem); text-transform: uppercase; letter-spacing: 0.05em; color: var(--cream); }
+
+    /* Content */
+    .content-wrap { max-width: 860px; margin: 0 auto; padding: 5rem 2rem; }
+
+    .section-label { font-family: 'NativeRecordScript', cursive; font-size: 1.2rem; color: var(--amber); display: block; margin-bottom: 0.5rem; }
+    .section-heading { font-family: 'NativeRecordSans', sans-serif; font-size: clamp(1.4rem, 2.5vw, 1.9rem); text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-dark); margin-bottom: 1.5rem; }
+    .body-text { font-size: 0.95rem; line-height: 1.8; color: var(--text-mid); margin-bottom: 1.25rem; }
+
+    .content-section { margin-bottom: 5rem; }
+    .content-section:last-child { margin-bottom: 0; }
+
+    .divider { border: none; border-top: 1px solid rgba(58,74,36,0.2); margin: 4rem 0; }
+
+    /* Feature list */
+    .feature-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem 3rem; margin-top: 1.5rem; }
+    .feature-list li { padding-left: 1.25rem; position: relative; font-size: 0.9rem; line-height: 1.7; color: var(--text-mid); }
+    .feature-list li::before { content: '—'; position: absolute; left: 0; color: var(--amber); }
+    .feature-list li strong { display: block; font-family: 'NativeRecordSans', sans-serif; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dark); margin-bottom: 0.2rem; }
+
+    /* Distances */
+    .distances { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+    .distance-item { background: var(--cream); padding: 1.25rem 1.5rem; border-radius: 4px; }
+    .distance-name { font-family: 'NativeRecordSans', sans-serif; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green-dark); margin-bottom: 0.3rem; }
+    .distance-val { font-size: 1.1rem; color: var(--amber); }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .nav-left, .nav-right { display: none; }
+      .hamburger { display: flex; }
+      .nav-inner { grid-template-columns: auto 1fr; }
+      .nav-logo { justify-content: flex-end; }
+      .feature-list { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .content-wrap { padding: 3rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <div id="site-nav-placeholder"></div>
+  <script src="js/nav-loader.js" defer></script>
+
+  <header class="page-header">
+    <span class="page-header-label">Est. 1970</span>
+    <h1 class="page-header-title">About Manitou Lodge</h1>
+  </header>
+
+  <main class="content-wrap">
+
+    <section class="content-section">
+      <span class="section-label">Our Story</span>
+      <h2 class="section-heading">A Lodge Built for the Forest</h2>
+      <p class="body-text">Originally built in 1970, Manitou Lodge was designed around a classic lodge structure whose most striking feature is a great room with vaulted ceilings and a massive stone fireplace. Set on ten acres of coastal rainforest — just about as far west as you can get in the lower 48 states — Manitou is what a lodge should be: wood, stone, and furniture you can put your feet up on.</p>
+      <p class="body-text">Nights here are quiet except for the distant rush of the Sol Duc River and the occasional calls of coyotes and owls. We offer lodge rooms, cottage rooms, rustic cabins, A-frames, and camping for guests who want to be as close to the wild Washington coast as possible.</p>
+    </section>
+
+    <hr class="divider" />
+
+    <section class="content-section">
+      <span class="section-label">The Property</span>
+      <h2 class="section-heading">What Makes Manitou Special</h2>
+      <ul class="feature-list">
+        <li>
+          <strong>Unique &amp; Scenic Setting</strong>
+          Ten acres of coastal rainforest, just about as far west as you can get in the lower 48 states.
+        </li>
+        <li>
+          <strong>Ancient Trees</strong>
+          A Western Hemlock on the property is well over 1,000 years old, with imposing hemlocks and spruce throughout.
+        </li>
+        <li>
+          <strong>Trails &amp; Grounds</strong>
+          Wonderful walking trails, bits of whimsy, and lovely spots to picnic throughout the property.
+        </li>
+        <li>
+          <strong>Summer Weather</strong>
+          Sunshine and temperatures that rarely rise above 80°F — ideal for exploring the coast and rainforest.
+        </li>
+        <li>
+          <strong>Winter Storms</strong>
+          Powerful Pacific storms worth experiencing — especially when a couch, fire, and warm bed are just minutes away.
+        </li>
+        <li>
+          <strong>World-Class Fishing</strong>
+          The Sol Duc, Bogachiel, Calawah, and Hoh Rivers offer exceptional salmon and steelhead fishing.
+        </li>
+      </ul>
+    </section>
+
+    <hr class="divider" />
+
+    <section class="content-section">
+      <span class="section-label">Explore</span>
+      <h2 class="section-heading">Forks &amp; Olympic National Park</h2>
+      <p class="body-text">There is something for everybody any time of year in Olympic National Park and Forks, Washington. Explore wilderness beaches, hike through moss-draped rainforest, fish the plentiful rivers, or simply enjoy the quiet of the far west end of the Olympic Peninsula.</p>
+      <p class="body-text">Manitou Lodge is ideally positioned as a base for exploring the entire coast — close to everything, yet surrounded by forest.</p>
+
+      <div class="distances">
+        <div class="distance-item">
+          <p class="distance-name">Rialto Beach</p>
+          <p class="distance-val">3 miles</p>
+        </div>
+        <div class="distance-item">
+          <p class="distance-name">Hoh Rainforest</p>
+          <p class="distance-val">~40 miles</p>
+        </div>
+        <div class="distance-item">
+          <p class="distance-name">Sol Duc Hot Springs</p>
+          <p class="distance-val">~45 miles</p>
+        </div>
+        <div class="distance-item">
+          <p class="distance-name">Cape Flattery</p>
+          <p class="distance-val">~60 miles</p>
+        </div>
+        <div class="distance-item">
+          <p class="distance-name">La Push</p>
+          <p class="distance-val">9 miles</p>
+        </div>
+        <div class="distance-item">
+          <p class="distance-name">Forks, WA</p>
+          <p class="distance-val">15 minutes</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <section class="content-section">
+      <span class="section-label">Beaches</span>
+      <h2 class="section-heading">The Coast</h2>
+      <p class="body-text"><strong>Rialto Beach</strong> — 3 miles away. A spectacular driftwood-strewn beach with heavy surf, huge logs, and magnificent sunsets. The crescent extends roughly 1.5 miles, ending with sea stacks, tidal pools, and "Hole-in-the-Wall." An 18-mile backpacking route heads north to Cape Alava.</p>
+      <p class="body-text"><strong>First, Second, and Third Beaches</strong> — South of the Quileute River mouth near La Push. Long flat crescents popular with photographers for their sea stacks, the "Quileute Needles," tidal pools, and eagles. Second Beach is a 0.5-mile hike; Third Beach is 1.5 miles. You can backpack south roughly 17 miles to Oil City.</p>
+    </section>
+
+    <hr class="divider" />
+
+    <section class="content-section">
+      <span class="section-label">Rainforest</span>
+      <h2 class="section-heading">The Hoh Rainforest</h2>
+      <p class="body-text">About 40 miles from Manitou Lodge, the Hoh Rainforest receives over 150 inches of rain annually. The Hall of Mosses Trail winds through moss-draped big-leaf maples described by visitors as a jade-colored cathedral. The Spruce Trail follows the glacier-carved Hoh River through ancient forest. Scenic raft trips run in summer; fishing guides operate year-round.</p>
+    </section>
+
+  </main>
+
+  <div id="site-footer-placeholder"></div>
+  <script src="js/footer-loader.js" defer></script>
+</body>
+</html>
