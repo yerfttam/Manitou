@@ -1,0 +1,59 @@
+# Manitou Lodge — Property Map
+# Format: Short Name | Guesty ID | Guesty Booking URL
+# Total: 26 active properties
+# Last updated: 2026-03-22
+# Source: Guesty Open API /v1/listings (nickname field, prefix "z")
+#
+# Inactive (excluded): zt01, zt02, zt05
+# Non-existent (gaps): zt16, zt17
+
+# ─────────────────────────────────────────────
+# LODGE ROOMS (5)
+# ─────────────────────────────────────────────
+
+Sacagawea   | 678ffd1d34219b00204bc56c | https://manitoulodge.guestybookings.com/en/properties/678ffd1d34219b00204bc56c
+Pocahontas  | 678ffd0ad8ebd40013dac34b | https://manitoulodge.guestybookings.com/en/properties/678ffd0ad8ebd40013dac34b
+Cedar       | 678ffd14dde8b90012463782 | https://manitoulodge.guestybookings.com/en/properties/678ffd14dde8b90012463782
+Lady        | 678ffd25d0b8af0014bb2456 | https://manitoulodge.guestybookings.com/en/properties/678ffd25d0b8af0014bb2456
+Lily        | 678ffd41329ea700121062b7 | https://manitoulodge.guestybookings.com/en/properties/678ffd41329ea700121062b7
+
+# ─────────────────────────────────────────────
+# COTTAGE ROOMS (2)
+# ─────────────────────────────────────────────
+
+Eagle       | 678ffc76a31a2b00104032ad | https://manitoulodge.guestybookings.com/en/properties/678ffc76a31a2b00104032ad
+Owl         | 678ffc84dde8b9001246334a | https://manitoulodge.guestybookings.com/en/properties/678ffc84dde8b9001246334a
+
+# ─────────────────────────────────────────────
+# CABINS (2)
+# ─────────────────────────────────────────────
+
+Outback     | 678ffcca32d15200123cb001 | https://manitoulodge.guestybookings.com/en/properties/678ffcca32d15200123cb001
+Outback 2   | 678ffcd45355f900111b8e95 | https://manitoulodge.guestybookings.com/en/properties/678ffcd45355f900111b8e95
+
+# ─────────────────────────────────────────────
+# A-FRAMES (2)
+# ─────────────────────────────────────────────
+
+Wildflower  | 678ffd4a926e150020035384 | https://manitoulodge.guestybookings.com/en/properties/678ffd4a926e150020035384
+Deepwoods   | 678ffd5adde8b90012463ae7 | https://manitoulodge.guestybookings.com/en/properties/678ffd5adde8b90012463ae7
+
+# ─────────────────────────────────────────────
+# CAMPING AND TENT SITES (15)
+# ─────────────────────────────────────────────
+
+Tent Site 3  | 678ffde45355f900111b993f | https://manitoulodge.guestybookings.com/en/properties/678ffde45355f900111b993f
+Tent Site 4  | 678ffdf1f0114a0011e61346 | https://manitoulodge.guestybookings.com/en/properties/678ffdf1f0114a0011e61346
+Tent Site 6  | 678ffdfad0b8af0014bb308f | https://manitoulodge.guestybookings.com/en/properties/678ffdfad0b8af0014bb308f
+Tent Site 7  | 678ffd8b52d5b90012aabecd | https://manitoulodge.guestybookings.com/en/properties/678ffd8b52d5b90012aabecd
+Tent Site 8  | 678ffe0eff72d700105c3dcd | https://manitoulodge.guestybookings.com/en/properties/678ffe0eff72d700105c3dcd
+Tent Site 9  | 678ffe170460ab0012c209e8 | https://manitoulodge.guestybookings.com/en/properties/678ffe170460ab0012c209e8
+Tent Site 10 | 678ffd96a31a2b0010403c09 | https://manitoulodge.guestybookings.com/en/properties/678ffd96a31a2b0010403c09
+Tent Site 11 | 678ffda5d0b8af0014bb2b7c | https://manitoulodge.guestybookings.com/en/properties/678ffda5d0b8af0014bb2b7c
+Tent Site 12 | 678ffdb49af81b0010936295 | https://manitoulodge.guestybookings.com/en/properties/678ffdb49af81b0010936295
+Tent Site 13 | 678ffdc0fbd7d100126f0a9b | https://manitoulodge.guestybookings.com/en/properties/678ffdc0fbd7d100126f0a9b
+Tent Site 14 | 678ffdc94e75a00011542120 | https://manitoulodge.guestybookings.com/en/properties/678ffdc94e75a00011542120
+Tent Site 15 | 678ffe535f0aac0013fff778 | https://manitoulodge.guestybookings.com/en/properties/678ffe535f0aac0013fff778
+Tent Site 18 | 678ffe91f0114a0011e617f7 | https://manitoulodge.guestybookings.com/en/properties/678ffe91f0114a0011e617f7
+Tent Site 19 | 678ffe9f5f0aac0013fffb6c | https://manitoulodge.guestybookings.com/en/properties/678ffe9f5f0aac0013fffb6c
+Tent Site 20 | 678ffeaf337d5e0011a0ce43 | https://manitoulodge.guestybookings.com/en/properties/678ffeaf337d5e0011a0ce43

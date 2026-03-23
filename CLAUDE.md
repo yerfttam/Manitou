@@ -1,6 +1,6 @@
 # Manitou
 
-Marketing website for a vacation rental property.
+Marketing website for **Manitou Lodge** — a vacation rental property in Forks, Washington offering lodge rooms, cabins, and camping on 10 acres of coastal rainforest. Minutes from Olympic National Park, Rialto Beach, and the Washington coast.
 
 ## Project Structure
 
@@ -9,8 +9,8 @@ NEW/                  ← source of truth, this is what gets deployed
   *.html              ← one file per page
   js/nav-loader.js    ← dynamically injects shared nav into pages
   js/footer-loader.js ← dynamically injects shared footer into pages
-  partials/nav.html   ← shared nav markup (desktop + mobile)
-  partials/footer.html← shared footer markup (links, contact, version)
+  partials/nav.tpl    ← shared nav markup (desktop + mobile)
+  partials/footer.tpl ← shared footer markup (links, contact, version)
   images/             ← Website assets (backgrounds, property photos, logo, icons)
     bkgds/            ← section background textures
     properties/       ← property listing photos
@@ -39,10 +39,71 @@ The nav is a shared partial at `partials/nav.html`, injected at runtime by `js/n
 <script src="js/nav-loader.js" defer></script>
 ```
 
+## Site Pages
+
+From the designer's comp and footer nav:
+- `index.html` — Home
+- `accommodations.html` — Accommodations (links to Guesty listings)
+- `about.html` — About
+- `specials.html` — Specials
+- `resources.html` — Resources
+- `policies.html` — Policies
+- `reservations.html` — Reservations
+
+## Design
+
+Visual design is from the designer's PDF: `assets-raw/Manitou Lodge/Website/1 HOME/MTL - HOME PAGE V2.pdf`
+
+To read it (it exceeds Claude's 20MB limit), convert to images first:
+```bash
+python3 -c "
+import fitz
+doc = fitz.open('assets-raw/Manitou Lodge/Website/1 HOME/MTL - HOME PAGE V2.pdf')
+page = doc[0]
+h, w = page.rect.height, page.rect.width
+sections = [('hero',0,0.22),('about',0.22,0.42),('spaces',0.42,0.58),('rainforest',0.58,0.72),('rain',0.72,0.90),('footer',0.90,1.0)]
+for name, y0, y1 in sections:
+    clip = fitz.Rect(0, h*y0, w, h*y1)
+    page.get_pixmap(matrix=fitz.Matrix(2.5,2.5), clip=clip).save(f'/tmp/manitou-{name}.jpg')
+"
+```
+Then read `/tmp/manitou-{section}.jpg` files.
+
+### Color Palette
+
+| Role | Color |
+|------|-------|
+| Primary background | Deep forest green `~#4a5c38` |
+| CTA buttons / accents | Warm gold/amber `~#c8913a` |
+| Content section backgrounds | Cream/parchment `~#e8e4d0` |
+| Text on dark | Off-white |
+
+### Contact Info (from footer)
+- **Address:** 813 Kilmer Rd #9511, Forks, WA 98331
+- **Phone:** (360) 374-6295
+
+### Home Page Sections (in order)
+1. **Hero** — "ESCAPE TO THE FOREST / *in Forks, Washington*" + BOOK NOW, cabin photo
+2. **Welcome to Manitou Lodge** — two photos, body copy, BOOK NOW
+3. **Our Spaces** — 5-photo grid of rooms, pricing (from $75.90/night)
+4. **Unmatched Access to Rainforest and Coast** — full-bleed rainforest photo, dark overlay text
+5. **Come In From The Rain** — lantern illustration, copy, BOOK NOW, Direct Booking Benefits (Best rate / Reserve 24/7 / No booking fee), photo strip
+6. **Footer** — stag badge logo, nav links, contact info
+
+### Navigation (desktop)
+Left: HOME | ACCOMMODATIONS | ABOUT | SPECIALS
+Center: Manitou Lodge stag logo
+Right: RESOURCES | CONTACT | **BOOK NOW** (amber button)
+
+### Logo / Brand
+- Badge-style circular logo with a stag, pine trees, "MANITOU LODGE", "est. 1970", "FORKS, WASHINGTON"
+- Decorative pine tree silhouettes used as section dividers/background elements
+- Dashed curved lines used as decorative connectors between sections
+
 ## Styles
 
 - No CSS framework — all styles are inline `<style>` blocks per page
-- Reference WCBNW color palette and patterns as starting point
+- Follow the designer's color palette above (not WCBNW)
 
 ## Images
 
@@ -62,11 +123,11 @@ Every page footer displays a version string (e.g. `v1.0.0`) via `<span class="si
 
 **Update with every push.** Bump patch for routine changes, minor for larger changes.
 
-Current version: **v1.0.0**
+Current version: **v0.1.0**
 
 **The footer is a shared partial.** To update the version, edit ONE file only:
 ```
-NEW/partials/footer.html
+NEW/partials/footer.tpl
 ```
 
 **Commit message format:** Always lead with the version number:
