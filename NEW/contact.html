@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Manitou Lodge</title>
+  <style>
+    @font-face {
+      font-family: 'NativeRecordSerif';
+      src: url('fonts/native_record_serif-webfont.woff2') format('woff2'),
+           url('fonts/native_record_serif-webfont.woff') format('woff');
+      font-weight: normal; font-style: normal;
+    }
+    @font-face {
+      font-family: 'NativeRecordScript';
+      src: url('fonts/native_record_script-webfont.woff2') format('woff2'),
+           url('fonts/native_record_script-webfont.woff') format('woff');
+      font-weight: normal; font-style: normal;
+    }
+    @font-face {
+      font-family: 'NativeRecordSans';
+      src: url('fonts/native_record_sans-webfont.woff2') format('woff2'),
+           url('fonts/native_record_sans-webfont.woff') format('woff');
+      font-weight: normal; font-style: normal;
+    }
+
+    :root {
+      --green:       #3a4a24;
+      --green-dark:  #283318;
+      --amber:       #c8953a;
+      --cream:       #ddd9bc;
+      --cream-light: #e8e4ce;
+      --white:       #ffffff;
+      --text-dark:   #2d2a1e;
+      --text-mid:    #4a4535;
+      --nav-h:       72px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: Georgia, serif; font-size: 16px; color: var(--text-dark); background: var(--cream-light); overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* ── Nav ───────────────────────────────────────────── */
+    #site-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: var(--green-dark); height: var(--nav-h); }
+    .nav-inner { max-width: 1280px; margin: 0 auto; height: 100%; padding: 0 2rem; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-left { justify-content: flex-start; }
+    .nav-right { justify-content: flex-end; }
+    .nav-links a { font-family: 'NativeRecordSans', sans-serif; font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.75); transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-book-btn { background: var(--amber) !important; color: var(--green-dark) !important; padding: 0.5rem 1.25rem !important; border-radius: 4px !important; opacity: 1 !important; }
+    .nav-book-btn:hover { background: #b8832e !important; }
+    .nav-logo { display: flex; justify-content: center; }
+    .nav-logo img { height: 64px; width: auto; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); }
+    .mobile-menu { display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; background: var(--green-dark); z-index: 999; padding: 1.5rem 2rem; flex-direction: column; gap: 0.75rem; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: 'NativeRecordSans', sans-serif; font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.8); padding: 0.6rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .mobile-menu .sub-links { padding-left: 1rem; display: flex; flex-direction: column; gap: 0.3rem; margin-top: -0.25rem; margin-bottom: 0.25rem; }
+    .mobile-menu .sub-links a { font-size: 0.68rem; opacity: 0.6; border-bottom: none; padding: 0.2rem 0; }
+    .mobile-menu .mob-book { margin-top: 0.5rem; text-align: center; background: var(--amber); color: var(--white) !important; padding: 0.75rem !important; border-bottom: none !important; border-radius: 4px; }
+
+    /* ── Page Hero ─────────────────────────────────────── */
+    .page-hero {
+      margin-top: var(--nav-h);
+      background: var(--green-dark);
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+    }
+    .page-hero-label { font-family: 'NativeRecordScript', cursive; font-size: 1.3rem; color: var(--amber); display: block; margin-bottom: 0.75rem; }
+    .page-hero-title { font-family: 'NativeRecordSans', sans-serif; font-size: clamp(2rem, 4vw, 3rem); text-transform: uppercase; letter-spacing: 0.05em; color: var(--cream); margin-bottom: 1rem; }
+    .page-hero-sub { font-size: 0.9rem; color: rgba(221,217,188,0.55); letter-spacing: 0.1em; }
+
+    /* ── Contact Section ───────────────────────────────── */
+    .contact-section { background: var(--cream-light); padding: 5rem 2rem; }
+    .contact-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+
+    /* Info column */
+    .contact-label { font-family: 'NativeRecordScript', cursive; font-size: 1.1rem; color: var(--amber); display: block; margin-bottom: 0.5rem; }
+    .contact-title { font-family: 'NativeRecordSans', sans-serif; font-size: clamp(1.5rem, 2.5vw, 2rem); text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-dark); margin-bottom: 2.25rem; line-height: 1.2; }
+    .contact-item { display: flex; gap: 1.1rem; align-items: flex-start; margin-bottom: 1.75rem; }
+    .contact-icon { width: 42px; height: 42px; flex-shrink: 0; background: var(--green-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    .contact-icon svg { width: 18px; height: 18px; fill: none; stroke: var(--cream); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .contact-item-label { font-family: 'NativeRecordSans', sans-serif; font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green-dark); margin-bottom: 0.3rem; }
+    .contact-item-value { font-size: 0.9rem; line-height: 1.7; color: var(--text-mid); }
+    .contact-item-value a { color: var(--amber); transition: color 0.2s; }
+    .contact-item-value a:hover { color: var(--green-dark); }
+
+    /* Form column */
+    .form-title { font-family: 'NativeRecordSans', sans-serif; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-dark); margin-bottom: 1.75rem; }
+    .form-group { margin-bottom: 1.25rem; }
+    .form-group label { display: block; font-family: 'NativeRecordSans', sans-serif; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dark); margin-bottom: 0.45rem; }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%; background: var(--white); border: 1px solid rgba(58,74,36,0.2);
+      padding: 0.7rem 0.9rem; font-family: Georgia, serif; font-size: 0.9rem;
+      color: var(--text-dark); outline: none; transition: border-color 0.2s;
+      appearance: none; border-radius: 2px;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--amber); }
+    .form-group textarea { resize: vertical; min-height: 130px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .btn-submit {
+      display: inline-block; background: var(--green-dark); color: var(--cream);
+      font-family: 'NativeRecordSans', sans-serif;
+      font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+      padding: 0.9rem 2.8rem; border: none; cursor: pointer; border-radius: 4px;
+      transition: background 0.2s, transform 0.2s; margin-top: 0.5rem;
+    }
+    .btn-submit:hover { background: var(--green); transform: translateY(-2px); }
+    .btn-submit:disabled { opacity: 0.6; cursor: default; transform: none; }
+    .form-success { display: none; margin-top: 1rem; color: var(--green); font-size: 0.9rem; line-height: 1.6; }
+    .form-error { display: none; margin-top: 1rem; color: #b03a2e; font-size: 0.9rem; }
+
+    /* ── Feature Strip ─────────────────────────────────── */
+    .feature-strip {
+      background: var(--green);
+      padding: 5rem 4rem;
+      display: flex; align-items: center;
+    }
+    .feature-content { max-width: 560px; }
+    .feature-label { font-family: 'NativeRecordScript', cursive; font-size: 1.1rem; color: var(--amber); display: block; margin-bottom: 0.75rem; }
+    .feature-title { font-family: 'NativeRecordSans', sans-serif; font-size: clamp(1.4rem, 2.5vw, 2rem); text-transform: uppercase; letter-spacing: 0.04em; color: var(--cream); line-height: 1.3; margin-bottom: 1rem; }
+    .feature-body { font-size: 0.92rem; line-height: 1.8; color: rgba(221,217,188,0.7); margin-bottom: 1.75rem; }
+    .btn-outline-cream { display: inline-block; border: 1px solid rgba(221,217,188,0.55); color: var(--cream); font-family: 'NativeRecordSans', sans-serif; font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; padding: 0.75rem 2rem; border-radius: 4px; transition: background 0.2s, border-color 0.2s; }
+    .btn-outline-cream:hover { background: rgba(221,217,188,0.1); border-color: var(--cream); }
+
+    /* ── Footer ────────────────────────────────────────── */
+    #site-footer { background: var(--green-dark); padding: 4rem 2rem 2rem; color: rgba(221,217,188,0.65); }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: auto 1fr auto; gap: 4rem; align-items: start; margin-bottom: 3rem; }
+    .footer-brand img.footer-logo { height: 110px; width: auto; }
+    .footer-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 3rem; }
+    .footer-nav ul { list-style: none; }
+    .footer-nav ul li { margin-bottom: 0.65rem; }
+    .footer-nav ul li a { font-family: 'NativeRecordSans', sans-serif; font-size: 0.82rem; color: rgba(221,217,188,0.6); transition: color 0.2s; }
+    .footer-nav ul li a:hover { color: var(--cream); }
+    .footer-contact h4 { font-family: 'NativeRecordSans', sans-serif; font-size: 0.62rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--amber); margin-bottom: 1rem; }
+    .footer-contact p { font-size: 0.85rem; line-height: 1.8; color: rgba(221,217,188,0.7); margin-bottom: 0.5rem; }
+    .footer-contact a { color: rgba(221,217,188,0.7); transition: color 0.2s; }
+    .footer-contact a:hover { color: var(--cream); }
+    .footer-bottom { max-width: 1100px; margin: 0 auto; padding-top: 1.5rem; border-top: 1px solid rgba(221,217,188,0.15); text-align: center; font-family: 'NativeRecordSans', sans-serif; font-size: 0.72rem; color: rgba(221,217,188,0.35); }
+    .site-version { font-size: 0.6rem; opacity: 0.6; }
+
+    /* ── Responsive ────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .nav-left, .nav-right { display: none; }
+      .hamburger { display: flex; }
+      .nav-inner { grid-template-columns: auto 1fr; }
+      .nav-logo { justify-content: flex-end; }
+      .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .feature-strip { padding: 3.5rem 2rem; }
+      .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-brand { display: none; }
+    }
+    @media (max-width: 600px) {
+      .footer-nav { grid-template-columns: 1fr; }
+      .contact-section { padding: 3rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <div id="site-nav-placeholder"></div>
+  <script src="js/nav-loader.js" defer></script>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <span class="page-hero-label">We'd love to hear from you</span>
+    <h1 class="page-hero-title">Contact Us</h1>
+    <p class="page-hero-sub">Reservations, questions, or just say hello</p>
+  </div>
+
+  <!-- CONTACT SECTION -->
+  <section class="contact-section">
+    <div class="contact-inner">
+
+      <!-- INFO COLUMN -->
+      <div class="contact-info-col">
+        <span class="contact-label">Get in Touch</span>
+        <h2 class="contact-title">Reach Out<br>Anytime</h2>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>
+          </div>
+          <div>
+            <div class="contact-item-label">Address</div>
+            <div class="contact-item-value">813 Kilmer Rd #9511<br>Forks, WA 98331</div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          </div>
+          <div>
+            <div class="contact-item-label">Phone</div>
+            <div class="contact-item-value"><a href="tel:+13603746295">(360) 374-6295</a></div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </div>
+          <div>
+            <div class="contact-item-label">Email</div>
+            <div class="contact-item-value"><a href="mailto:stay@manitoulodge.com">stay@manitoulodge.com</a></div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <div class="contact-item-label">Check-in / Check-out</div>
+            <div class="contact-item-value">Check-in: After 4:00 PM<br>Check-out: By 11:00 AM<br>Two-night minimum in summer</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FORM COLUMN -->
+      <div class="contact-form-col">
+        <p class="form-title">Send Us a Message</p>
+        <!--
+          Formspree: replace the action URL below with your Formspree endpoint.
+          Sign up free at formspree.io, create a form, and paste the endpoint here.
+        -->
+        <form id="contact-form" action="https://formspree.io/f/XXXXXXXX" method="POST">
+          <input type="hidden" name="_subject" value="New message from Manitou Lodge website" />
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" name="first_name" placeholder="Jane" required />
+            </div>
+            <div class="form-group">
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" name="last_name" placeholder="Doe" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="jane@example.com" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" />
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <select id="subject" name="subject">
+              <option value="">Select a subject…</option>
+              <option>Booking Inquiry</option>
+              <option>General Question</option>
+              <option>Pet Policy</option>
+              <option>Group Booking</option>
+              <option>Directions &amp; Arrival</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us about your trip, dates, or any questions you have…" required></textarea>
+          </div>
+          <button type="submit" class="btn-submit" id="submit-btn">Send Message</button>
+          <p class="form-success" id="form-success">✓ Message sent — we'll be in touch soon.</p>
+          <p class="form-error" id="form-error">Something went wrong. Please try again or email us directly at <a href="mailto:stay@manitoulodge.com">stay@manitoulodge.com</a>.</p>
+        </form>
+
+        <script>
+          const form = document.getElementById('contact-form');
+          form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submit-btn');
+            btn.textContent = 'Sending…';
+            btn.disabled = true;
+            try {
+              const res = await fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { 'Accept': 'application/json' }
+              });
+              if (res.ok) {
+                form.reset();
+                document.getElementById('form-success').style.display = 'block';
+                document.getElementById('form-error').style.display = 'none';
+                btn.textContent = 'Sent!';
+              } else {
+                throw new Error('Server error');
+              }
+            } catch(err) {
+              document.getElementById('form-error').style.display = 'block';
+              document.getElementById('form-success').style.display = 'none';
+              btn.textContent = 'Send Message';
+              btn.disabled = false;
+            }
+          });
+        </script>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FEATURE STRIP -->
+  <div class="feature-strip">
+    <div class="feature-content">
+      <span class="feature-label">Find Us</span>
+      <h2 class="feature-title">On the Olympic<br>Peninsula</h2>
+      <p class="feature-body">Located 15 minutes west of Forks on 10 acres of coastal rainforest. Just 3 miles from Rialto Beach and minutes from Olympic National Park. Self check-in instructions are sent after booking — make sure your email address is correct.</p>
+      <a href="https://manitoulodge.guestybookings.com/en/properties" target="_blank" class="btn-outline-cream">Book Now</a>
+    </div>
+  </div>
+
+  <div id="site-footer-placeholder"></div>
+  <script src="js/footer-loader.js" defer></script>
+</body>
+</html>
