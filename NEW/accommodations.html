@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Accommodations — Manitou Lodge</title>
   <style>
-    /* ── Fonts ─────────────────────────────────────────── */
     @font-face {
       font-family: 'NativeRecordSerif';
       src: url('fonts/native_record_serif-webfont.woff2') format('woff2'),
@@ -25,7 +24,6 @@
       font-weight: normal; font-style: normal;
     }
 
-    /* ── Tokens ────────────────────────────────────────── */
     :root {
       --green:       #3a4a24;
       --green-dark:  #283318;
@@ -36,6 +34,7 @@
       --text-dark:   #2d2a1e;
       --text-mid:    #4a4535;
       --nav-h:       72px;
+      --cat-h:       46px;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -44,7 +43,7 @@
     a { text-decoration: none; color: inherit; }
     img { max-width: 100%; display: block; }
 
-    /* ── Nav placeholder ───────────────────────────────── */
+    /* ── Nav ───────────────────────────────────────────── */
     #site-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: var(--green-dark); height: var(--nav-h); }
     .nav-inner { max-width: 1280px; margin: 0 auto; height: 100%; padding: 0 2rem; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; }
     .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
@@ -52,7 +51,7 @@
     .nav-right { justify-content: flex-end; }
     .nav-links a { font-family: 'NativeRecordSans', sans-serif; font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.75); transition: color 0.2s; }
     .nav-links a:hover, .nav-links a.active { color: var(--white); }
-    .nav-book-btn { background: var(--amber) !important; color: var(--green-dark) !important; padding: 0.5rem 1.25rem !important; font-size: 0.7rem !important; letter-spacing: 0.15em !important; opacity: 1 !important; border-radius: 4px !important; }
+    .nav-book-btn { background: var(--amber) !important; color: var(--green-dark) !important; padding: 0.5rem 1.25rem !important; border-radius: 4px !important; opacity: 1 !important; }
     .nav-book-btn:hover { background: #b8832e !important; }
     .nav-logo { display: flex; justify-content: center; }
     .nav-logo img { height: 64px; width: auto; }
@@ -61,108 +60,78 @@
     .mobile-menu { display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; background: var(--green-dark); z-index: 999; padding: 1.5rem 2rem; flex-direction: column; gap: 0.75rem; }
     .mobile-menu.open { display: flex; }
     .mobile-menu a { font-family: 'NativeRecordSans', sans-serif; font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.8); padding: 0.6rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .mobile-menu .mob-book { margin-top: 0.5rem; text-align: center; background: var(--amber); color: var(--white) !important; padding: 0.75rem !important; border-bottom: none !important; }
+    .mobile-menu .sub-links { padding-left: 1rem; display: flex; flex-direction: column; gap: 0.3rem; margin-top: -0.25rem; }
+    .mobile-menu .sub-links a { font-size: 0.7rem; opacity: 0.6; border-bottom: none; padding: 0.25rem 0; }
+    .mobile-menu .mob-book { margin-top: 0.5rem; text-align: center; background: var(--amber); color: var(--white) !important; padding: 0.75rem !important; border-bottom: none !important; border-radius: 4px; }
 
-    /* ── Page Header ───────────────────────────────────── */
-    .page-header {
+    /* ── Dropdown ──────────────────────────────────────── */
+    .nav-links .dropdown { position: relative; }
+    .nav-links .dropdown-menu { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: var(--green-dark); min-width: 210px; list-style: none; padding: 0.5rem 0; box-shadow: 0 8px 24px rgba(0,0,0,0.35); border-top: 2px solid var(--amber); z-index: 1001; }
+    .nav-links .dropdown:hover .dropdown-menu { display: block; }
+    .nav-links .dropdown-menu li a { display: block; padding: 0.5rem 1.25rem; font-size: 0.65rem; color: rgba(221,217,188,0.75); opacity: 1; white-space: nowrap; }
+    .nav-links .dropdown-menu li a:hover { background: rgba(255,255,255,0.07); color: var(--cream); }
+
+    /* ── Page Hero ─────────────────────────────────────── */
+    .page-hero {
+      margin-top: var(--nav-h);
       background: var(--green-dark);
-      padding-top: calc(var(--nav-h) + 4rem);
-      padding-bottom: 4rem;
+      padding: 5rem 2rem 4rem;
       text-align: center;
     }
-    .page-header-label {
-      font-family: 'NativeRecordScript', cursive;
-      font-size: 1.3rem; color: var(--amber);
-      display: block; margin-bottom: 0.5rem;
-    }
-    .page-header-title {
-      font-family: 'NativeRecordSans', sans-serif;
-      font-size: clamp(2rem, 4vw, 3rem);
-      text-transform: uppercase; letter-spacing: 0.05em;
-      color: var(--cream);
-    }
-    .page-header-sub {
-      margin-top: 1rem;
-      font-size: 0.9rem; color: rgba(221,217,188,0.7);
-      letter-spacing: 0.05em;
-    }
+    .page-hero-label { font-family: 'NativeRecordScript', cursive; font-size: 1.3rem; color: var(--amber); display: block; margin-bottom: 0.75rem; }
+    .page-hero-title { font-family: 'NativeRecordSans', sans-serif; font-size: clamp(2rem, 4vw, 3rem); text-transform: uppercase; letter-spacing: 0.05em; color: var(--cream); margin-bottom: 1rem; }
+    .page-hero-sub { font-size: 0.85rem; color: rgba(221,217,188,0.55); letter-spacing: 0.12em; }
 
-    /* ── Accommodations Content ────────────────────────── */
-    .accom-section {
-      max-width: 1200px; margin: 0 auto;
-      padding: 5rem 2rem;
-    }
-    .category-block { margin-bottom: 5rem; }
-    .category-heading {
-      font-family: 'NativeRecordSans', sans-serif;
-      font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase;
-      color: var(--amber); margin-bottom: 0.5rem;
-    }
-    .category-title {
-      font-family: 'NativeRecordSans', sans-serif;
-      font-size: clamp(1.4rem, 2.5vw, 2rem);
-      text-transform: uppercase; letter-spacing: 0.04em;
-      color: var(--text-dark); margin-bottom: 2rem;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid rgba(58,74,36,0.2);
-    }
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 2rem;
-    }
-    .property-card {
-      background: var(--white);
-      border-radius: 4px;
-      overflow: hidden;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-      display: flex; flex-direction: column;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .property-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.12); }
-    .card-photo { aspect-ratio: 4/3; overflow: hidden; }
-    .card-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
-    .property-card:hover .card-photo img { transform: scale(1.04); }
-    .card-body { padding: 1.25rem 1.5rem 1.5rem; flex: 1; display: flex; flex-direction: column; }
-    .card-name {
-      font-family: 'NativeRecordSans', sans-serif;
-      font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--text-dark); margin-bottom: 0.4rem;
-    }
-    .card-summary {
-      font-size: 0.82rem; color: var(--text-mid);
-      line-height: 1.55; margin-bottom: 1rem; flex: 1;
-    }
-    .card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: auto; }
-    .card-price {
-      font-family: 'NativeRecordSans', sans-serif;
-      font-size: 0.75rem; color: var(--text-mid); letter-spacing: 0.05em;
-    }
-    .card-price strong { color: var(--text-dark); font-size: 1rem; }
-    .card-book {
-      display: inline-block;
-      font-family: 'NativeRecordSans', sans-serif;
-      font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
-      background: var(--amber); color: var(--white);
-      padding: 0.55rem 1.1rem; border-radius: 4px;
-      transition: background 0.2s;
-    }
-    .card-book:hover { background: #b8832e; }
+    /* ── Category Nav Bar ──────────────────────────────── */
+    .cat-nav { background: var(--green-dark); position: sticky; top: var(--nav-h); z-index: 900; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .cat-nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: center; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .cat-nav-inner a { font-family: 'NativeRecordSans', sans-serif; font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(221,217,188,0.55); padding: 1rem 1.5rem; border-bottom: 2px solid transparent; white-space: nowrap; transition: color 0.2s, border-color 0.2s; display: block; }
+    .cat-nav-inner a:hover { color: var(--cream); border-bottom-color: var(--amber); }
 
-    /* ── Loading state ─────────────────────────────────── */
-    .loading { text-align: center; padding: 4rem; color: var(--text-mid); font-size: 0.85rem; letter-spacing: 0.1em; }
+    /* ── Section Headers ───────────────────────────────── */
+    .accom-section { scroll-margin-top: calc(var(--nav-h) + var(--cat-h)); }
+    .section-header { background: var(--green); padding: 3.5rem 2rem 3rem; text-align: center; }
+    .section-header-label { font-family: 'NativeRecordScript', cursive; font-size: 1.1rem; color: var(--amber); display: block; margin-bottom: 0.5rem; }
+    .section-header-title { font-family: 'NativeRecordSans', sans-serif; font-size: clamp(1.5rem, 3vw, 2.2rem); text-transform: uppercase; letter-spacing: 0.05em; color: var(--cream); margin-bottom: 1rem; }
+    .section-header-desc { font-size: 0.9rem; line-height: 1.8; color: rgba(221,217,188,0.65); max-width: 580px; margin: 0 auto; }
 
-    /* ── Responsive ────────────────────────────────────── */
-    @media (max-width: 900px) {
-      .nav-left, .nav-right { display: none; }
-      .hamburger { display: flex; }
-      .nav-inner { grid-template-columns: auto 1fr; }
-      .nav-logo { justify-content: flex-end; }
-    }
-    @media (max-width: 600px) {
-      .cards-grid { grid-template-columns: 1fr; }
-      .accom-section { padding: 3rem 1.25rem; }
-    }
+    /* ── Property Grid ─────────────────────────────────── */
+    .prop-grid-wrap { background: var(--cream-light); padding: 3rem 2rem 5rem; }
+    .prop-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 1200px; margin: 0 auto; }
+    .prop-grid--2 { grid-template-columns: repeat(2, 1fr); max-width: 800px; }
+    .prop-grid--4 { grid-template-columns: repeat(4, 1fr); }
+
+    /* ── Property Card ─────────────────────────────────── */
+    .prop-card { background: var(--white); overflow: hidden; border-radius: 4px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); transition: transform 0.25s, box-shadow 0.25s; display: flex; flex-direction: column; }
+    .prop-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.14); }
+    .prop-card-img { width: 100%; height: 220px; object-fit: cover; display: block; }
+    .prop-card--site .prop-card-img { height: 170px; }
+    .prop-card-body { padding: 1.25rem 1.4rem 1.5rem; flex: 1; display: flex; flex-direction: column; }
+    .prop-card-name { font-family: 'NativeRecordSans', sans-serif; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dark); margin-bottom: 0.4rem; }
+    .prop-card-desc { font-size: 0.82rem; color: var(--text-mid); line-height: 1.55; margin-bottom: 0.6rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .prop-card-price { font-size: 0.85rem; color: var(--amber); margin-bottom: 0.5rem; }
+    .prop-card-meta { font-size: 0.75rem; color: var(--text-mid); opacity: 0.7; margin-bottom: 0.9rem; letter-spacing: 0.03em; }
+    .prop-card-dots { display: flex; gap: 5px; margin-bottom: 0.75rem; }
+    .prop-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--cream); opacity: 0.5; transition: opacity 0.2s, background 0.2s; }
+    .prop-dot.active { opacity: 1; background: var(--amber); }
+    .prop-card-book { display: inline-block; font-family: 'NativeRecordSans', sans-serif; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; background: var(--amber); color: var(--white); padding: 0.55rem 1.1rem; border-radius: 4px; transition: background 0.2s; margin-top: auto; align-self: flex-start; }
+    .prop-card-book:hover { background: #b8832e; }
+
+    /* ── Carousel ──────────────────────────────────────── */
+    .prop-card-carousel { position: relative; overflow: hidden; }
+    .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(40,51,24,0.6); color: var(--white); border: none; cursor: pointer; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; line-height: 1; opacity: 0; transition: opacity 0.2s; z-index: 2; }
+    .carousel-btn--prev { left: 8px; }
+    .carousel-btn--next { right: 8px; }
+    .prop-card-carousel:hover .carousel-btn { opacity: 1; }
+    .carousel-btn:hover { background: rgba(40,51,24,0.9); }
+
+    /* ── Book CTA ──────────────────────────────────────── */
+    .book-cta { background: var(--green-dark); padding: 5rem 2rem; text-align: center; }
+    .book-cta-label { font-family: 'NativeRecordScript', cursive; font-size: 1.2rem; color: var(--amber); display: block; margin-bottom: 0.75rem; }
+    .book-cta-title { font-family: 'NativeRecordSans', sans-serif; font-size: clamp(1.5rem, 3vw, 2.2rem); text-transform: uppercase; letter-spacing: 0.05em; color: var(--cream); margin-bottom: 1rem; }
+    .book-cta-sub { font-size: 0.9rem; color: rgba(221,217,188,0.6); margin-bottom: 2.5rem; line-height: 1.7; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .btn-amber { display: inline-block; font-family: 'NativeRecordSans', sans-serif; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; background: var(--amber); color: var(--green-dark); padding: 0.9rem 2.5rem; border-radius: 4px; transition: background 0.2s; }
+    .btn-amber:hover { background: #b8832e; }
 
     /* ── Footer ────────────────────────────────────────── */
     #site-footer { background: var(--green-dark); padding: 4rem 2rem 2rem; color: rgba(221,217,188,0.65); }
@@ -179,77 +148,58 @@
     .footer-contact a:hover { color: var(--cream); }
     .footer-bottom { max-width: 1100px; margin: 0 auto; padding-top: 1.5rem; border-top: 1px solid rgba(221,217,188,0.15); text-align: center; font-family: 'NativeRecordSans', sans-serif; font-size: 0.72rem; color: rgba(221,217,188,0.35); }
     .site-version { font-size: 0.6rem; opacity: 0.6; }
-    @media (max-width: 900px) { .footer-inner { grid-template-columns: 1fr; gap: 2rem; } .footer-brand { display: none; } }
-    @media (max-width: 600px) { .footer-nav { grid-template-columns: 1fr; } }
+
+    /* ── Responsive ────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .nav-left, .nav-right { display: none; }
+      .hamburger { display: flex; }
+      .nav-inner { grid-template-columns: auto 1fr; }
+      .nav-logo { justify-content: flex-end; }
+      .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-brand { display: none; }
+      .prop-grid, .prop-grid--4 { grid-template-columns: repeat(2, 1fr); }
+      .prop-grid--2 { grid-template-columns: 1fr; max-width: 420px; }
+      .cat-nav-inner { justify-content: flex-start; }
+      .cat-nav-inner a { padding: 0.8rem 1rem; font-size: 0.58rem; }
+    }
+    @media (max-width: 600px) {
+      .prop-grid, .prop-grid--4 { grid-template-columns: 1fr; }
+      .footer-nav { grid-template-columns: 1fr; }
+      .prop-grid-wrap { padding: 2rem 1.25rem 4rem; }
+    }
   </style>
 </head>
 <body>
   <div id="site-nav-placeholder"></div>
   <script src="js/nav-loader.js" defer></script>
 
-  <header class="page-header">
-    <span class="page-header-label">Find Your Stay</span>
-    <h1 class="page-header-title">Accommodations</h1>
-    <p class="page-header-sub">Lodge rooms, cabins, A-frames &amp; camping on 10 acres of coastal rainforest</p>
-  </header>
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <span class="page-hero-label">Find Your Stay</span>
+    <h1 class="page-hero-title">Accommodations</h1>
+    <p class="page-hero-sub">Lodge Rooms &middot; Cabins &middot; A-Frames &middot; Tent Sites</p>
+  </div>
 
-  <main class="accom-section" id="listings-root">
-    <p class="loading">Loading properties…</p>
-  </main>
+  <!-- STICKY CATEGORY NAV -->
+  <nav class="cat-nav" aria-label="Accommodation categories">
+    <div class="cat-nav-inner" id="listings-cat-nav">
+      <!-- populated by listings-loader.js -->
+    </div>
+  </nav>
+
+  <!-- DYNAMIC SECTIONS (populated by listings-loader.js) -->
+  <div id="listings-sections"></div>
+
+  <!-- BOOK CTA -->
+  <div class="book-cta">
+    <span class="book-cta-label">Ready to Reserve?</span>
+    <h2 class="book-cta-title">Book Your Stay</h2>
+    <p class="book-cta-sub">Book directly for the best available rate — no booking fees, no middlemen. Reserve online 24/7 or call us at (360) 374-6295.</p>
+    <a href="https://manitoulodge.guestybookings.com/en/properties" target="_blank" class="btn-amber">Book Now</a>
+  </div>
 
   <div id="site-footer-placeholder"></div>
   <script src="js/footer-loader.js" defer></script>
-
-  <script>
-    fetch('data/listings.json')
-      .then(r => r.json())
-      .then(data => {
-        const root = document.getElementById('listings-root');
-        root.innerHTML = '';
-
-        data.categories.forEach(cat => {
-          if (!cat.listings || cat.listings.length === 0) return;
-
-          const block = document.createElement('div');
-          block.className = 'category-block';
-          block.innerHTML = `
-            <p class="category-heading">Explore</p>
-            <h2 class="category-title">${cat.name}</h2>
-            <div class="cards-grid" id="grid-${cat.slug}"></div>
-          `;
-          root.appendChild(block);
-
-          const grid = block.querySelector('.cards-grid');
-          cat.listings.forEach(listing => {
-            const photo = listing.photos && listing.photos[0] ? listing.photos[0].original : '';
-            const price = listing.price ? listing.price.base : '';
-            const summary = listing.summary || listing.description || '';
-            const shortSummary = summary.length > 100 ? summary.slice(0, 100).replace(/\s\w+$/, '') + '…' : summary;
-
-            const card = document.createElement('div');
-            card.className = 'property-card';
-            card.innerHTML = `
-              <div class="card-photo">
-                <img src="${photo}" alt="${listing.name}" loading="lazy" />
-              </div>
-              <div class="card-body">
-                <p class="card-name">${listing.name}</p>
-                ${shortSummary ? `<p class="card-summary">${shortSummary}</p>` : ''}
-                <div class="card-footer">
-                  <div class="card-price">
-                    ${price ? `from <strong>$${price}</strong>/night` : ''}
-                  </div>
-                  <a href="${listing.bookingUrl}" target="_blank" rel="noopener" class="card-book">Book Now</a>
-                </div>
-              </div>
-            `;
-            grid.appendChild(card);
-          });
-        });
-      })
-      .catch(() => {
-        document.getElementById('listings-root').innerHTML = '<p class="loading">Unable to load properties. Please try again later.</p>';
-      });
-  </script>
+  <script src="js/listings-loader.js" defer></script>
 </body>
 </html>

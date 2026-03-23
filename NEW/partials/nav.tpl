@@ -2,7 +2,16 @@
   <div class="nav-inner">
     <ul class="nav-links nav-left">
       <li><a href="index.html">Home</a></li>
-      <li><a href="accommodations.html">Accommodations</a></li>
+      <li class="dropdown">
+        <a href="accommodations.html">Accommodations ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="accommodations.html#lodge-rooms">Lodge Rooms</a></li>
+          <li><a href="accommodations.html#cottage-rooms">Cottage Rooms</a></li>
+          <li><a href="accommodations.html#cabins">Cabins</a></li>
+          <li><a href="accommodations.html#a-frames">A-Frames</a></li>
+          <li><a href="accommodations.html#camping-and-tent-sites">Camping &amp; Tent Sites</a></li>
+        </ul>
+      </li>
       <li><a href="about.html">About</a></li>
       <li><a href="specials.html">Specials</a></li>
     </ul>
@@ -22,6 +31,13 @@
 <div class="mobile-menu" id="mobileMenu">
   <a href="index.html">Home</a>
   <a href="accommodations.html">Accommodations</a>
+  <div class="sub-links">
+    <a href="accommodations.html#lodge-rooms">Lodge Rooms</a>
+    <a href="accommodations.html#cottage-rooms">Cottage Rooms</a>
+    <a href="accommodations.html#cabins">Cabins</a>
+    <a href="accommodations.html#a-frames">A-Frames</a>
+    <a href="accommodations.html#camping-and-tent-sites">Camping &amp; Tent Sites</a>
+  </div>
   <a href="about.html">About</a>
   <a href="specials.html">Specials</a>
   <a href="policies.html">Policies</a>
