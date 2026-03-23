@@ -183,7 +183,7 @@ Every page footer displays a version string via `<span class="site-version">`.
 3. Update `Current version` below to match
 4. Lead the commit message with the version number — this is what shows in the Render deploy dashboard
 
-Current version: **v0.2.9**
+Current version: **v0.3.0**
 
 **The footer is a shared partial.** To update the version, edit ONE file only:
 ```
