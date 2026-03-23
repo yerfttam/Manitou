@@ -4,7 +4,6 @@
       <li><a href="index.html">Home</a></li>
       <li><a href="accommodations.html">Accommodations</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="specials.html">Specials</a></li>
     </ul>
     <a href="index.html" class="nav-logo">
       <img src="images/logo/MTL-Logo_Light.png" alt="Manitou Lodge" />
@@ -23,7 +22,6 @@
   <a href="index.html">Home</a>
   <a href="accommodations.html">Accommodations</a>
   <a href="about.html">About</a>
-  <a href="specials.html">Specials</a>
   <a href="policies.html">Policies</a>
   <a href="contact.html">Contact</a>
   <a href="https://manitoulodge.guestybookings.com/en/properties" target="_blank" class="mob-book">Book Now</a>
