@@ -14,7 +14,7 @@ function getListingDesc(listing) {
   const paras = listing.description.split('\n\n').map(p => p.trim()).filter(Boolean);
   const para = paras.find(p => !p.startsWith(GENERIC)) || paras[0] || '';
   const clean = para.replace(/^\*+\s*/g, '').replace(/\*+\s*/g, '').trim();
-  return clean.length > 220 ? clean.slice(0, 220).replace(/\s+\S*$/, '') + '…' : clean;
+  return clean.length > 440 ? clean.slice(0, 440).replace(/\s+\S*$/, '') + '…' : clean;
 }
 
 // Section descriptions keyed by category slug.
