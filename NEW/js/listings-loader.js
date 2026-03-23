@@ -128,6 +128,16 @@ async function loadListings() {
     navEl.innerHTML      = renderCatNav(data.categories);
     sectionsEl.innerHTML = data.categories.map(renderSection).join('');
 
+    // If the URL has a hash (e.g. arriving from another page via dropdown),
+    // scroll to that section now that the DOM is populated.
+    if (window.location.hash) {
+      const target = document.querySelector(window.location.hash);
+      if (target) {
+        // Small delay lets the browser finish layout before we scroll
+        setTimeout(() => target.scrollIntoView({ behavior: 'smooth' }), 50);
+      }
+    }
+
   } catch (err) {
     console.error('listings-loader: failed to load listings.json', err);
     sectionsEl.innerHTML = `

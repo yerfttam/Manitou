@@ -23,7 +23,7 @@ Establishes the design system — colors, fonts, nav/footer partials — that al
 - [ ] Come In From The Rain section — lantern, copy, Direct Booking Benefits
 - [ ] Photo strip and Instagram / Stay Connected block
 - [ ] Mobile QA at 375px width
-- [ ] Deploy and verify on Render
+
 
 ## 3. Build Static Pages ← IN PROGRESS
 - [x] `accommodations.html` — WCBNW-style: sticky cat nav, sections per category, photo carousels, nav dropdown
@@ -32,7 +32,6 @@ Establishes the design system — colors, fonts, nav/footer partials — that al
 - [x] `specials.html` — coming soon page
 - [x] `contact.html` — info panel + contact form (Formspree) + feature strip
 - [ ] **Formspree:** sign up at formspree.io, create a form, replace `XXXXXXXX` in `contact.html` form action URL with real endpoint
-- [ ] `resources.html`
 - [ ] Mobile QA all pages
 
 ## 4. Guesty Setup ✓
@@ -47,9 +46,8 @@ Establishes the design system — colors, fonts, nav/footer partials — that al
 **Note:** Category names must avoid `/` — breaks the parser regex. Use "AND" instead.
 
 ## 5. Build Accommodations + Reservations Pages
-- [x] `accommodations.html` — property cards rendered from `listings.json`, organized by category
-- [ ] `reservations.html`
-- [ ] Mobile QA both pages
+- [x] `accommodations.html` — WCBNW-style: sticky cat nav, sections per category, photo carousels, Accommodations dropdown in nav
+- [ ] Mobile QA
 
 **No widget embed needed.** Manitou uses a newer standalone Guesty booking engine (Next.js app at `manitoulodge.guestybookings.com`, engine ID `1197`). Each property card links directly to its booking URL from `listings.json`.
 
@@ -61,9 +59,5 @@ Runs `sync-guesty.py`, commits and pushes `listings.json` if changed. `[skip ci]
 - [ ] Confirm schedule: `cron: '0 3 * * *'` (3 AM UTC)
 - [ ] Trigger manually via `workflow_dispatch` to verify end-to-end
 
-## 7. Publish to Render + Final QA
-- [ ] Confirm `render.yaml` is correctly configured (publish dir: `NEW`)
-- [ ] Connect GitHub repo to Render
-- [ ] Verify auto-deploy on push to `main`
-- [ ] Confirm version number appears correctly in footer on live site
+## 7. Final QA ✓ (Render working)
 - [ ] Mobile QA full site at 375px width
