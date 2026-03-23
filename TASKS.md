@@ -14,7 +14,7 @@
 - [x] Rainforest & Coast section — wcb-2.jpg background, green box, copy
 - [x] Come In From The Rain — 3-column layout, Direct Booking Benefits
 - [x] Instagram strip — amber panel linking to @manitou_lodge, 4 IG photos from saved pages
-- [ ] **Lantern illustration** — get asset from designer, add to Come In From The Rain column 1
+- [ ] **Icons / SVGs from designer** — get all illustrations and icons (lantern, trees, campfire, etc.) and integrate into home page sections and footer
 - [ ] **Instagram live feed** — requires IG Business/Creator account + Facebook App (LightWidget recommended when login available)
 - [ ] Mobile QA at 375px width
 
