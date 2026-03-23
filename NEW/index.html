@@ -458,35 +458,35 @@
       <h2 class="section-heading">Our Spaces</h2>
     </div>
     <div class="spaces-grid">
-      <a class="space-card" href="accommodations.html#lodge-rooms">
+      <a class="space-card" href="accommodations.html#lodge-rooms" data-category="lodge-rooms">
         <img src="https://assets.guesty.com/image/upload/listing_images_s3/production/property-photos/37f48ad4586fd9c4cb4426df08e362856ad1c5d65990df90/678ffd1d34219b00204bc56c/080f63bb-e597-42-MP_od" alt="Lodge Room" loading="lazy" />
         <div class="space-card-info">
           <p class="space-card-name">Lodge Rooms</p>
           <p class="space-card-price">from $205/night</p>
         </div>
       </a>
-      <a class="space-card" href="accommodations.html#a-frames">
+      <a class="space-card" href="accommodations.html#a-frames" data-category="a-frames">
         <img src="https://assets.guesty.com/image/upload/listing_images_s3/production/property-photos/37f48ad4586fd9c4cb4426df08e362856ad1c5d65990df90/678ffd4a926e150020035384/b27b051c-5080-41-V76Vy" alt="A-Frame" loading="lazy" />
         <div class="space-card-info">
           <p class="space-card-name">A-Frames</p>
           <p class="space-card-price">from $89/night</p>
         </div>
       </a>
-      <a class="space-card" href="accommodations.html#camping-and-tent-sites">
+      <a class="space-card" href="accommodations.html#camping-and-tent-sites" data-category="camping-and-tent-sites">
         <img src="https://assets.guesty.com/image/upload/listing_images_s3/production/property-photos/37f48ad4586fd9c4cb4426df08e362856ad1c5d65990df90/678ffde45355f900111b993f/63b4c19e-ad40-41-oTJUF" alt="Tent Site" loading="lazy" />
         <div class="space-card-info">
           <p class="space-card-name">Camping &amp; Tent Sites</p>
           <p class="space-card-price">from $44/night</p>
         </div>
       </a>
-      <a class="space-card" href="accommodations.html#cottage-rooms">
+      <a class="space-card" href="accommodations.html#cottage-rooms" data-category="cottage-rooms">
         <img src="https://assets.guesty.com/image/upload/listing_images_s3/production/property-photos/37f48ad4586fd9c4cb4426df08e362856ad1c5d65990df90/678ffc76a31a2b00104032ad/7fa2a8d3-21e8-42-Nb3MG" alt="Cottage Room" loading="lazy" />
         <div class="space-card-info">
           <p class="space-card-name">Cottage Rooms</p>
           <p class="space-card-price">from $189/night</p>
         </div>
       </a>
-      <a class="space-card" href="accommodations.html#cabins">
+      <a class="space-card" href="accommodations.html#cabins" data-category="cabins">
         <img src="https://assets.guesty.com/image/upload/listing_images_s3/production/property-photos/37f48ad4586fd9c4cb4426df08e362856ad1c5d65990df90/678ffcca32d15200123cb001/6e0f1308-a29e-46-zL16M" alt="Cabin" loading="lazy" />
         <div class="space-card-info">
           <p class="space-card-name">Cabins</p>
@@ -555,6 +555,29 @@
 
   <div id="site-footer-placeholder"></div>
   <script src="js/footer-loader.js" defer></script>
+
+  <script>
+    // Dynamically update "from $X/night" prices from listings.json
+    fetch('data/listings.json')
+      .then(r => r.json())
+      .then(data => {
+        // Build a slug → min price map
+        const minPrices = {};
+        data.categories.forEach(cat => {
+          const prices = cat.listings.map(l => l.price.base).filter(p => p > 0);
+          if (prices.length) minPrices[cat.slug] = Math.min(...prices);
+        });
+        // Update each space card
+        document.querySelectorAll('.space-card[data-category]').forEach(card => {
+          const slug = card.dataset.category;
+          if (minPrices[slug] !== undefined) {
+            card.querySelector('.space-card-price').textContent =
+              'from $' + minPrices[slug] + '/night';
+          }
+        });
+      })
+      .catch(() => {}); // silently keep hardcoded fallback on error
+  </script>
 
 </body>
 </html>
