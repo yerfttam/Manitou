@@ -11,6 +11,8 @@
       </ul>
       <ul>
         <li><a href="policies.html">Policies</a></li>
+        <li><a href="specials.html">Specials</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
     <div class="footer-contact">
@@ -21,6 +23,6 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <p>Copyright &copy; 2026. All Rights Reserved &nbsp;&mdash;&nbsp; <span class="site-version">v0.2.3</span></p>
+    <p>Copyright &copy; 2026. All Rights Reserved &nbsp;&mdash;&nbsp; <span class="site-version">v0.2.4</span></p>
   </div>
 </footer>
