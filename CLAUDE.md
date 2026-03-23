@@ -158,21 +158,29 @@ Mobile traffic is a priority. After every push, check all pages at 375px width. 
 
 ## Version Number
 
+> ⚠️ **REQUIRED ON EVERY GIT PUSH — NO EXCEPTIONS**
+
 Every page footer displays a version string via `<span class="site-version">`.
 
-**Update with every push.** Bump patch for routine changes, minor for larger changes.
+**Rules:**
+1. Bump the version in `NEW/partials/footer.tpl` before EVERY commit that gets pushed
+2. Bump patch (0.1.x) for routine fixes and small changes; bump minor (0.x.0) for new pages or significant features
+3. Update `Current version` below to match
+4. Lead the commit message with the version number — this is what shows in the Render deploy dashboard
 
-Current version: **v0.1.3**
+Current version: **v0.1.6**
 
 **The footer is a shared partial.** To update the version, edit ONE file only:
 ```
 NEW/partials/footer.tpl
 ```
+Change the `<span class="site-version">vX.X.X</span>` value. Do not edit version strings in individual page files.
 
 **Commit message format:** Always lead with the version number:
 ```
-v0.1.3 fix: replace Resources nav link with Policies
+v0.1.6 fix: description of what changed
 ```
+This version prefix appears in the Render deploy dashboard, making it easy to confirm which version is live.
 
 ## Guesty Integration
 

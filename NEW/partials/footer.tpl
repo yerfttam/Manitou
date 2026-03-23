@@ -8,10 +8,8 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="accommodations.html">Accommodations</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="specials.html">Specials</a></li>
       </ul>
       <ul>
-        <li><a href="resources.html">Resources</a></li>
         <li><a href="policies.html">Policies</a></li>
         <li><a href="reservations.html">Reservations</a></li>
       </ul>
@@ -24,6 +22,6 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <p>Copyright &copy; 2026. All Rights Reserved &nbsp;&mdash;&nbsp; <span class="site-version">v0.1.0</span></p>
+    <p>Copyright &copy; 2026. All Rights Reserved &nbsp;&mdash;&nbsp; <span class="site-version">v0.1.6</span></p>
   </div>
 </footer>
