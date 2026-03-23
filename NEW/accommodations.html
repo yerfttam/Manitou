@@ -163,6 +163,24 @@
       .cards-grid { grid-template-columns: 1fr; }
       .accom-section { padding: 3rem 1.25rem; }
     }
+
+    /* ── Footer ────────────────────────────────────────── */
+    #site-footer { background: var(--green-dark); padding: 4rem 2rem 2rem; color: rgba(221,217,188,0.65); }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: auto 1fr auto; gap: 4rem; align-items: start; margin-bottom: 3rem; }
+    .footer-brand img.footer-logo { height: 110px; width: auto; }
+    .footer-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 3rem; }
+    .footer-nav ul { list-style: none; }
+    .footer-nav ul li { margin-bottom: 0.65rem; }
+    .footer-nav ul li a { font-family: 'NativeRecordSans', sans-serif; font-size: 0.82rem; color: rgba(221,217,188,0.6); transition: color 0.2s; }
+    .footer-nav ul li a:hover { color: var(--cream); }
+    .footer-contact h4 { font-family: 'NativeRecordSans', sans-serif; font-size: 0.62rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--amber); margin-bottom: 1rem; }
+    .footer-contact p { font-size: 0.85rem; line-height: 1.8; color: rgba(221,217,188,0.7); margin-bottom: 0.5rem; }
+    .footer-contact a { color: rgba(221,217,188,0.7); transition: color 0.2s; }
+    .footer-contact a:hover { color: var(--cream); }
+    .footer-bottom { max-width: 1100px; margin: 0 auto; padding-top: 1.5rem; border-top: 1px solid rgba(221,217,188,0.15); text-align: center; font-family: 'NativeRecordSans', sans-serif; font-size: 0.72rem; color: rgba(221,217,188,0.35); }
+    .site-version { font-size: 0.6rem; opacity: 0.6; }
+    @media (max-width: 900px) { .footer-inner { grid-template-columns: 1fr; gap: 2rem; } .footer-brand { display: none; } }
+    @media (max-width: 600px) { .footer-nav { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
