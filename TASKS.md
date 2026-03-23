@@ -26,10 +26,12 @@ Establishes the design system — colors, fonts, nav/footer partials — that al
 - [ ] Deploy and verify on Render
 
 ## 3. Build Static Pages ← IN PROGRESS
-- [x] `accommodations.html` — property cards from listings.json, by category, Guesty booking links
+- [x] `accommodations.html` — WCBNW-style: sticky cat nav, sections per category, photo carousels, nav dropdown
 - [x] `about.html` — history, property features, regional activities
 - [x] `policies.html` — rates, check-in/out, cancellations, pets
-- [ ] `specials.html`
+- [x] `specials.html` — coming soon page
+- [x] `contact.html` — info panel + contact form (Formspree) + feature strip
+- [ ] **Formspree:** sign up at formspree.io, create a form, replace `XXXXXXXX` in `contact.html` form action URL with real endpoint
 - [ ] `resources.html`
 - [ ] Mobile QA all pages
 
