@@ -23,6 +23,6 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <p>Copyright &copy; 2026. All Rights Reserved &nbsp;&mdash;&nbsp; <span class="site-version">v0.2.8</span></p>
+    <p>Copyright &copy; 2026. All Rights Reserved &nbsp;&mdash;&nbsp; <span class="site-version">v0.2.9</span></p>
   </div>
 </footer>
