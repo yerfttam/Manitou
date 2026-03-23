@@ -113,11 +113,12 @@ Then read `/tmp/manitou-{section}.jpg` files.
 
 | Variable | Value | Role |
 |----------|-------|------|
-| `--green` | `#3a4a24` | Mid green |
-| `--green-dark` | `#283318` | Primary background (nav, footer, hero) |
-| `--amber` | `#c8953a` | CTA buttons, accents, labels |
+| `--green-dark` | `#373f2e` | Primary background (nav, footer, hero) — designer spec |
+| `--green` | `#3a4a24` | Mid green (section headers, accents) |
+| `--amber` | `#c4822a` | CTA buttons, accents, labels — designer spec |
+| `--olive` | `#8a8153` | Secondary/decorative — designer spec |
+| `--cream-light` | `#e4dfb5` | Page background — designer spec |
 | `--cream` | `#ddd9bc` | Muted cream |
-| `--cream-light` | `#e8e4ce` | Page background |
 | `--text-dark` | `#2d2a1e` | Primary body text |
 | `--text-mid` | `#4a4535` | Secondary body text |
 | `--nav-h` | `72px` | Nav height (used for padding-top offsets) |
@@ -182,7 +183,7 @@ Every page footer displays a version string via `<span class="site-version">`.
 3. Update `Current version` below to match
 4. Lead the commit message with the version number — this is what shows in the Render deploy dashboard
 
-Current version: **v0.2.4**
+Current version: **v0.2.5**
 
 **The footer is a shared partial.** To update the version, edit ONE file only:
 ```
