@@ -112,9 +112,10 @@ Then read `/tmp/manitou-{section}.jpg` files.
 ### Fonts
 
 Native Record family via `@font-face` woff/woff2 in `fonts/`:
-- `NativeRecordSerif` — body copy (default `body` font), hero headings
+- `Georgia, serif` — default `body` font; all paragraph/body copy
 - `NativeRecordSans` — nav links, section headings, labels, buttons, uppercase UI text
 - `NativeRecordScript` — decorative script labels (amber color, section intros e.g. "Welcome to")
+- `NativeRecordSerif` — display headings only (hero headline, large section titles)
 
 All three `@font-face` declarations must be included in every page's `<style>` block.
 
