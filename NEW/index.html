@@ -317,31 +317,32 @@
       font-size: 0.85rem; color: var(--text-mid); line-height: 1.4;
     }
 
-    /* ── Stay Connected ────────────────────────────────── */
-    .stay-connected {
-      background: var(--amber);
-      padding: 1.25rem 2rem;
-      display: flex; align-items: center; gap: 1rem;
-      margin-top: 3rem;
-    }
-    .stay-connected-label {
-      font-family: 'NativeRecordSans', sans-serif;
-      font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--white);
-    }
-    .stay-connected-handle {
-      font-family: 'NativeRecordSans', sans-serif;
-      font-size: 0.75rem; color: rgba(255,255,255,0.85);
-    }
-
-    /* ── Photo Strip ───────────────────────────────────── */
-    .photo-strip {
+    /* ── Instagram Strip ───────────────────────────────── */
+    .instagram-strip {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: 220px repeat(4, 1fr);
       height: 220px;
     }
+    .instagram-panel {
+      background: var(--amber);
+      display: flex; flex-direction: column;
+      justify-content: space-between;
+      padding: 1.5rem 1.75rem;
+    }
+    .instagram-icon { color: var(--white); opacity: 0.9; }
+    .instagram-icon svg { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 1.5; }
+    .instagram-text { }
+    .instagram-label {
+      font-family: 'NativeRecordSans', sans-serif;
+      font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--white); display: block; margin-bottom: 0.3rem;
+    }
+    .instagram-handle {
+      font-family: 'NativeRecordSans', sans-serif;
+      font-size: 0.72rem; color: rgba(255,255,255,0.8);
+    }
     .photo-strip-img {
-      width: 100%; height: 100%; object-fit: cover;
+      width: 100%; height: 100%; object-fit: cover; display: block;
     }
 
     /* ── Footer ────────────────────────────────────────── */
@@ -395,7 +396,7 @@
       .rain-inner { grid-template-columns: 1fr; gap: 2.5rem; }
       .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
       .footer-brand { display: none; }
-      .photo-strip { grid-template-columns: repeat(2, 1fr); height: auto; }
+      .instagram-strip { grid-template-columns: repeat(2, 1fr); height: auto; }
       .photo-strip-img { height: 180px; }
     }
     @media (max-width: 768px) {
@@ -413,7 +414,7 @@
       .welcome { padding: 4rem 1.5rem; }
       .spaces { padding: 4rem 1.5rem; }
       .rain { padding: 4rem 1.5rem 0; }
-      .photo-strip { grid-template-columns: repeat(2, 1fr); }
+      .instagram-strip { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
@@ -540,14 +541,23 @@
       </div>
     </div>
 
-    <div class="stay-connected">
-      <span class="stay-connected-label">Stay Connected</span>
-      <span class="stay-connected-handle">@manitoulodge</span>
-    </div>
   </section>
 
-  <!-- ══ PHOTO STRIP ════════════════════════════════════ -->
-  <div class="photo-strip">
+  <!-- ══ INSTAGRAM + PHOTO STRIP ═══════════════════════ -->
+  <div class="instagram-strip">
+    <div class="instagram-panel">
+      <div class="instagram-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="white" stroke="none"/>
+        </svg>
+      </div>
+      <div class="instagram-text">
+        <span class="instagram-label">Stay Connected</span>
+        <span class="instagram-handle">@manitou_lodge</span>
+      </div>
+    </div>
     <img class="photo-strip-img" src="https://assets.guesty.com/image/upload/listing_images_s3/production/property-photos/37f48ad4586fd9c4cb4426df08e362856ad1c5d65990df90/678ffcca32d15200123cb001/6f89053a-2c69-47-QOdmp" alt="" loading="lazy" />
     <img class="photo-strip-img" src="https://assets.guesty.com/image/upload/listing_images_s3/production/property-photos/37f48ad4586fd9c4cb4426df08e362856ad1c5d65990df90/678ffd0ad8ebd40013dac34b/3660226d-e0e0-42-laK53" alt="" loading="lazy" />
     <img class="photo-strip-img" src="https://assets.guesty.com/image/upload/listing_images_s3/production/property-photos/37f48ad4586fd9c4cb4426df08e362856ad1c5d65990df90/678ffd4a926e150020035384/aac3406b-8504-48-RAWRF" alt="" loading="lazy" />
