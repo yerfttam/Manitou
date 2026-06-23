@@ -38,7 +38,10 @@
 - [ ] Add secrets: `GUESTY_CLIENT_ID` + `GUESTY_CLIENT_SECRET` (repo Settings → Secrets → Actions)
 - [ ] Trigger manually via `workflow_dispatch` to verify end-to-end
 
-## 6. Final QA
+## 6. Changelog
+- [ ] **Create changelog page** — port the automated changelog system from WCBNW: `scripts/generate-changelog.py`, `.github/workflows/generate-changelog.yml`, and `changelog.html` rendering from `data/changelog.json`. Version number in footer links to it.
+
+## 7. Final QA
 - [ ] Mobile QA full site at 375px width
 - [ ] Confirm all nav links work on every page
 - [ ] Verify Formspree form submits correctly (after endpoint is set)
