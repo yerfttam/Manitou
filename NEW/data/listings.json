@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-22T22:49:02.726011+00:00",
+  "generated": "2026-06-23T05:11:01.699815+00:00",
   "account": "manitoulodge",
   "total": 26,
   "categories": [
@@ -197,10 +197,6 @@
               "thumbnail": "https://assets.guesty.com/image/upload/t_default_thumb/listing_images_s3/production/property-photos/37f48ad4586fd9c4cb4426df08e362856ad1c5d65990df90/678ffd14dde8b90012463782/e54be4f8-67d0-40-uZK9E"
             },
             {
-              "original": "https://assets.guesty.com/image/upload/listing_images_s3/production/property-photos/37f48ad4586fd9c4cb4426df08e362856ad1c5d65990df90/678ffd14dde8b90012463782/e2290f8b-5bbb-40-9v31W",
-              "thumbnail": "https://assets.guesty.com/image/upload/t_default_thumb/listing_images_s3/production/property-photos/37f48ad4586fd9c4cb4426df08e362856ad1c5d65990df90/678ffd14dde8b90012463782/e2290f8b-5bbb-40-9v31W"
-            },
-            {
               "original": "https://assets.guesty.com/image/upload/listing_images_s3/production/property-photos/37f48ad4586fd9c4cb4426df08e362856ad1c5d65990df90/678ffd14dde8b90012463782/13c35001-d5d7-4a--Xl4T",
               "thumbnail": "https://assets.guesty.com/image/upload/t_default_thumb/listing_images_s3/production/property-photos/37f48ad4586fd9c4cb4426df08e362856ad1c5d65990df90/678ffd14dde8b90012463782/13c35001-d5d7-4a--Xl4T"
             },
@@ -211,6 +207,10 @@
             {
               "original": "https://assets.guesty.com/image/upload/listing_images_s3/production/property-photos/37f48ad4586fd9c4cb4426df08e362856ad1c5d65990df90/678ffd14dde8b90012463782/9f5ecfbb-c9f9-41-P92hZ",
               "thumbnail": "https://assets.guesty.com/image/upload/t_default_thumb/listing_images_s3/production/property-photos/37f48ad4586fd9c4cb4426df08e362856ad1c5d65990df90/678ffd14dde8b90012463782/9f5ecfbb-c9f9-41-P92hZ"
+            },
+            {
+              "original": "https://assets.guesty.com/image/upload/listing_images_s3/production/property-photos/37f48ad4586fd9c4cb4426df08e362856ad1c5d65990df90/678ffd14dde8b90012463782/d20e2df2-8d44-41-qiA5X",
+              "thumbnail": "https://assets.guesty.com/image/upload/t_default_thumb/listing_images_s3/production/property-photos/37f48ad4586fd9c4cb4426df08e362856ad1c5d65990df90/678ffd14dde8b90012463782/d20e2df2-8d44-41-qiA5X"
             }
           ],
           "bookingUrl": "https://manitoulodge.guestybookings.com/en/properties/678ffd14dde8b90012463782"
