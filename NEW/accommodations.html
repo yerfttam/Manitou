@@ -180,13 +180,6 @@
     .modal-amenities li { font-size: 0.78rem; color: var(--text-mid); padding-left: 0.9rem; position: relative; }
     .modal-amenities li::before { content: '✓'; position: absolute; left: 0; color: var(--amber); font-size: 0.7rem; }
     .prop-card { cursor: pointer; }
-    @media (max-width: 600px) {
-      .modal-img { height: 240px; }
-      .modal-body { padding: 1.5rem; }
-      .modal-header { flex-direction: column; }
-
-      .modal-amenities { grid-template-columns: repeat(2, 1fr); }
-    }
 
     /* ── Footer ────────────────────────────────────────── */
     #site-footer { background: var(--green-dark); padding: 4rem 2rem 2rem; color: rgba(221,217,188,0.65); }
@@ -205,11 +198,7 @@
     .site-version { font-size: 0.6rem; opacity: 0.6; }
 
     /* ── Responsive ────────────────────────────────────── */
-    @media (max-width: 900px) {
-      .nav-left, .nav-right { display: none; }
-      .hamburger { display: flex; }
-      .nav-inner { grid-template-columns: auto 1fr; }
-      .nav-logo { justify-content: flex-end; }
+    @media (max-width: 1024px) {
       .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
       .footer-brand { display: none; }
       .prop-grid, .prop-grid--4 { grid-template-columns: repeat(2, 1fr); }
@@ -217,10 +206,19 @@
       .cat-nav-inner { justify-content: flex-start; }
       .cat-nav-inner a { padding: 0.8rem 1rem; font-size: 0.58rem; }
     }
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+      .page-hero-title { font-size: 1.8rem; letter-spacing: 0.03em; }
       .prop-grid, .prop-grid--4 { grid-template-columns: 1fr; }
       .footer-nav { grid-template-columns: 1fr; }
       .prop-grid-wrap { padding: 2rem 1.25rem 4rem; }
+      .modal-img { height: 220px; }
+      .modal-body { padding: 1.25rem; }
+      .modal-header { flex-direction: column; gap: 0.75rem; }
+      .modal-price-wrap { flex-direction: row; align-items: center; }
+      .modal-amenities { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>

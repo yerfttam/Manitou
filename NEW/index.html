@@ -388,35 +388,40 @@
     .site-version { font-size: 0.6rem; opacity: 0.6; }
 
     /* ── Responsive ────────────────────────────────────── */
-    @media (max-width: 900px) {
+    @media (max-width: 1024px) {
       .hero { grid-template-columns: 1fr; min-height: auto; }
       .hero-left { padding: 4rem 2rem; min-height: 70vh; }
-      .hero-left::after { display: none; }
       .hero-right { height: 50vw; min-height: 280px; }
       .welcome-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-      .welcome-photos { grid-template-columns: 1fr 1fr; max-width: 500px; }
+      .welcome-photos { grid-template-columns: 1fr 1fr; max-width: 500px; margin: 0 auto; }
+      .spaces-grid { height: auto; }
+      .spaces-grid .space-card { height: 240px; }
+      .spaces-grid .space-card:first-child { grid-row: auto; }
       .rain-inner { grid-template-columns: 1fr; gap: 2.5rem; }
       .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
       .footer-brand { display: none; }
-      .instagram-strip { grid-template-columns: repeat(2, 1fr); height: auto; }
-      .photo-strip-img { height: 180px; }
+      .instagram-strip { grid-template-columns: 160px repeat(4, 1fr); height: 160px; }
+      .photo-strip-img { height: 160px; }
     }
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .hamburger { display: flex; }
-      .spaces-grid { grid-template-columns: 1fr; grid-template-rows: auto; height: auto; }
-      .space-card:first-child { grid-row: auto; }
-      .space-card { height: 220px; }
+      .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+      .spaces-grid { grid-template-columns: 1fr; }
+      .space-card { height: 200px; }
       .rainforest-box { margin: 0 1rem; max-width: 100%; padding: 2rem; }
       .footer-nav { grid-template-columns: 1fr; }
+      .instagram-strip { grid-template-columns: 1fr 1fr; height: auto; }
+      .instagram-panel { grid-column: 1 / -1; flex-direction: row; align-items: center; gap: 1rem; padding: 1rem 1.5rem; }
+      .photo-strip-img { height: 140px; }
     }
     @media (max-width: 480px) {
       .hero-left { padding: 3rem 1.5rem; }
       .hero-heading { font-size: 2.4rem; }
       .welcome { padding: 4rem 1.5rem; }
       .spaces { padding: 4rem 1.5rem; }
-      .rain { padding: 4rem 1.5rem 0; }
-      .instagram-strip { grid-template-columns: repeat(2, 1fr); }
+      .rain { padding: 4rem 1.5rem; }
+      .photo-strip-img { height: 120px; }
     }
   </style>
 </head>
