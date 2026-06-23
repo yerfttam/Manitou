@@ -44,17 +44,17 @@ jobs:
         if: success()
         run: |
           curl -s \
-            -H "Title: Guesty Sync OK" \
+            -H "Title: Manitou Guesty Sync OK" \
             -H "Tags: white_check_mark" \
-            -d "Listings synced successfully at $(date -u '+%Y-%m-%d %H:%M UTC')" \
+            -d "Manitou listings synced successfully at $(date -u '+%Y-%m-%d %H:%M UTC')" \
             https://ntfy.sh/${{ secrets.NTFY_TOPIC }}
 
       - name: Notify failure
         if: failure()
         run: |
           curl -s \
-            -H "Title: Guesty Sync FAILED" \
+            -H "Title: Manitou Guesty Sync FAILED" \
             -H "Tags: x,rotating_light" \
             -H "Priority: high" \
-            -d "Guesty sync failed — check GitHub Actions for details." \
+            -d "Manitou Guesty sync failed — check GitHub Actions for details." \
             https://ntfy.sh/${{ secrets.NTFY_TOPIC }}
