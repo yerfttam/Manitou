@@ -149,19 +149,20 @@
     .site-version { font-size: 0.6rem; opacity: 0.6; }
 
     /* ── Responsive ────────────────────────────────────── */
-    @media (max-width: 900px) {
-      .nav-left, .nav-right { display: none; }
-      .hamburger { display: flex; }
-      .nav-inner { grid-template-columns: auto 1fr; }
-      .nav-logo { justify-content: flex-end; }
+    @media (max-width: 1024px) {
       .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
-      .form-row { grid-template-columns: 1fr; }
       .feature-strip { padding: 3.5rem 2rem; }
       .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
       .footer-brand { display: none; }
     }
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+      .form-row { grid-template-columns: 1fr; }
       .footer-nav { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
       .contact-section { padding: 3rem 1.25rem; }
     }
   </style>
