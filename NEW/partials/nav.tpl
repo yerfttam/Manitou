@@ -21,7 +21,7 @@
     <ul class="nav-links nav-right">
       <li><a href="policies.html">Policies</a></li>
       <li><a href="contact.html">Contact</a></li>
-      <li><a href="https://manitoulodge.guestybookings.com/en/properties" target="_blank" class="nav-book-btn">Book Now</a></li>
+      <li><a href="https://app.nspdm.com/book/manitou-lodge" target="_blank" class="nav-book-btn">Book Now</a></li>
     </ul>
     <button class="hamburger" aria-label="Open menu">
       <span></span><span></span><span></span>
@@ -42,5 +42,5 @@
   <a href="specials.html">Specials</a>
   <a href="policies.html">Policies</a>
   <a href="contact.html">Contact</a>
-  <a href="https://manitoulodge.guestybookings.com/en/properties" target="_blank" class="mob-book">Book Now</a>
+  <a href="https://app.nspdm.com/book/manitou-lodge" target="_blank" class="mob-book">Book Now</a>
 </div>
