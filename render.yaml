@@ -5,3 +5,10 @@ services:
     buildCommand: ""
     staticPublishPath: NEW
     branch: main
+
+  - type: web
+    name: manitou-stage
+    env: static
+    buildCommand: ""
+    staticPublishPath: NEW
+    branch: staging
